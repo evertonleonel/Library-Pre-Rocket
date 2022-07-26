@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/transicoes.css">
+  <script defer src="/src/js/login.js"></script>
+
+  <title>Library - Login</title>
 </head>
 <body>
-    <div>
-      SALVE
+  <div class="transicao  transicao1 esta-ativa"></div>
+
+    <div class="container">
+      
+      <form action="#" name="registro" method="post" class="formulario">
+
+        <img src="/src/imagens/login/Logo.svg" alt="Logo library" class="formulario_logo">
+        
+        <label for="formulario_email">
+          <input type="email" name="email" placeholder="E-mail" required>
+          <span  class="formulario_iconeEmail input-sem-foco" ><img src="/src/imagens/login/email.svg" alt="Icone email"></span>
+        </label>
+       
+        <label for="formulario_senha">
+          <input type="password" name="senha" placeholder="Senha" required>
+           <span class="formulario_iconeSenha input-sem-foco"><img src="/src/imagens/login/senha.svg" alt="Icone senha"></span>
+        </label>
+  
+        <span class="formulario_link">
+          <a href="#">Esqueci minha senha</a>
+        </span>
+        <button type="submit" class="formulario_btnSubmit">Entrar</button>
+
+      </form>
+
     </div>
+
 </body>
 </html>

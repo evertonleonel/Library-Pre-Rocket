@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-branca:#FFFFFF;
+  --cor-cinza: #F1F3F5;
+  --cor-cinza-medium: #868E96;
+  --cor-preta: #000000;
+  --cor-dourada: #FFC501;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background-color: aqua;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 44.3rem;
+  height: 44.6rem;
+  padding-top: 5.6rem ;
+  padding-bottom: 5.6rem;
+
+  background-color: var(--cor-branca);
+  border: 1px solid var(--cor-cinza);
+  border-radius: 8px;
+  margin: 0 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.formulario_logo {
+  width: 12rem;
+  height: 4.8rem;
+  margin-bottom: 5.6rem;
+}
+
+.formulario input {
+  width: 353px;
+  height: 51px;
+  font-size: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  color: var(--cor-cinza-medium);
+  text-align: left;
+  background-color: var(--cor-cinza);
+}
+
+.formulario input:focus {
+  outline: 1px solid var(--cor-dourada);
+  box-shadow: 0 0 5px var(--cor-dourada);
+}
+
+.formulario_iconeEmail{
+  position: absolute;
+  right: 12.5%;
+  bottom: 19.5rem;
+}
+
+.formulario_iconeSenha {
+  position: absolute;
+  right: 12.5%;
+  bottom: 13rem;
+}
+
+/* .input-com-foco {
+  padding: 0 0 10px 30px;
+} */
+
+.formulario_link {
+  margin-bottom: 32px;
+  width: 353px;
+}
+
+.formulario_link a {
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--cor-preta);
+}
+
+.formulario_btnSubmit {
+  width: 353px;
+  height: 45px;
+  
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--cor-preta);
+
+  border-radius: 4px;
+  border: none;
+  background-color: var(--cor-dourada);
+  cursor: pointer;
+}
+
+.formulario_btnSubmit:hover {
+  box-shadow: 0 0 15px var(--cor-cinza-medium);
+}
+
+/* Responsivo */
+
+@media screen and (max-width: 460px) {
+  .formulario_iconeEmail,
+  .formulario_iconeSenha {
+    display: none; 
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .formulario input , 
+  .formulario_link,
+  .formulario_btnSubmit {
+    width:320px;
+  }
+}
