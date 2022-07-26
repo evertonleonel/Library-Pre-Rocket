@@ -22,7 +22,7 @@ body {
   background-image: url(../imagens/boas_vindas/estrelas.svg);
   background-repeat: no-repeat;
 
-  cursor: pointer;
+ cursor: pointer;
 }
 
 .container {
@@ -35,6 +35,11 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .boas-vindas img {
