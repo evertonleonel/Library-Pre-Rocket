@@ -58,6 +58,7 @@ body {
   height: 51px;
   font-size: 14px;
   padding: 16px;
+  padding-right: 35px;
   margin-bottom: 16px;
   
   border-radius: 4px;
@@ -82,7 +83,7 @@ body {
 .formulario_iconeSenha {
   position: absolute;
   right: 12.5%;
-  bottom: 13rem;
+  bottom: 12.5rem;
 }
 
 /* .input-com-foco {
@@ -135,5 +136,9 @@ body {
   .formulario_link,
   .formulario_btnSubmit {
     width:320px;
+  }
+
+  .formulario input {
+    padding-right: 16px;
   }
 }

@@ -1,14 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/transicoes.css">
+
+  <script defer src="/src/js/menu.js"></script>
+  <script defer src="/src/js/home.js"></script>
+
+  <title>Home - Library</title>
 </head>
-<body>
-  <div>
-    HOME
-  </div>
+<body class="no-js">
+  <!-- <div class="transicao  transicao1 esta-ativa"></div> -->
+
+  <header class="cabecalho">
+
+      <figure class="cabecalho_logo">
+        <img src="/src/imagens/home/logo.svg" alt="Library - logo">
+      </figure>
+
+      <div class="cabecalho_logout" style="display:none"> 
+        <img src="/src/imagens/home/icone_usuario.svg" alt="Icone usuário">
+        <p>Usuário</p>
+        <img src="/src/imagens/home/seta.svg" alt="Icone seta de opção">
+      </div>
+
+      <nav class="cabecalho_sair">
+        <a href="/src/html/login.html">Sair</a>
+      </nav>
+
+  </header>
+
+  <main class="container">
+    <nav class="navegar">
+
+      <div class="navegar_opcoes">
+        <figure>
+          <img src="/src/imagens/home/adicionar.svg" alt="Icone adicionar">
+        </figure>
+        <span>
+          <a href="">Cadastrar Novo Livro</a>
+        </span>
+      </div>
+
+      <div class="navegar_opcoes">
+        <figure>
+          <img src="/src/imagens/home/livro.svg" alt="Icone biblioteca">
+        </figure>
+        <span>
+          <a href="">Biblioteca</a>
+        </span>
+      </div>
+
+      <div class="navegar_opcoes">
+        <figure>
+          <img src="/src/imagens/home/pendente.svg" alt="Icone histórico">
+        </figure>
+        <span>
+          <a href="">Histórico de empréstimos</a>
+        </span>
+      </div>
+      
+    </nav>
+  </main>
+
 </body>
 </html>
