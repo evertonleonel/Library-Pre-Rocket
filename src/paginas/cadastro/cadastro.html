@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
 
   <script defer src="/src/global/js/menu.js"></script>
-  <script defer src="home.js"></script>
+  <script defer src="cadastro.js"></script>
 
   <title>Cadastrar Livros</title>
 </head>
@@ -45,8 +45,8 @@
     
     <nav class="link-voltar-home">
       <img src="/src/assets/cadastro/seta_esquerda.svg" alt="seta voltar">
-      <a href="">Home</a>
-      <a href="">/ Cadastrar novo livro</a>
+      <a href="/src/paginas/home/home.html">Home</a>
+      <a href="/src/paginas/home/home.html">/ Cadastrar novo livro</a>
     </nav>
 
     <div class="cadastro-livro-content">
@@ -78,22 +78,32 @@
   
           <div class="informacao-livro">
             <label for="livro-genero"></label>
-            <input type="text" placeholder="Gênero" id="livro-genero" class="campo" required>
+            <!-- <input type="text" placeholder="Gênero" id="livro-genero" class="campo" required> -->
+            <select id="livro-genero" class="campo" required>
+              <option value="" disabled selected>Gênero</option>
+              <option value="0">Fantasia</option>
+              <option value="1">Ação e Aventura</option>
+              <option value="2">Horror</option>
+              <option value="3">Romance</option>
+            </select>
+            
+            
           </div>
           
           <div class="informacao-livro">
-            <label for="livro-data"></label>
-            <input type="text" placeholder="Data de entrada" id="livro-data" class="campo" required>
-            <span class="livro-data_icone">
-              <img src="/src/assets/cadastro/calendario.svg" alt="Icone calendário">
-            </span>
+            <label for="livro-data">
+              <input type="text" placeholder="Data de entrada" id="livro-data" class="campo" required>
+              <span class="livro-data_icone">
+                <img src="/src/assets/cadastro/calendario.svg" alt="Icone calendário">
+              </span>
+            </label>
           </div>
         </form>
       </div>
   
       <div class="botoes-cadastro-livro">
-        <button type="button" class="botao cancelar">Cancelar</button>
-        <button type="button" class="botao salvar">Salvar</button>
+        <button type="button" class="botao btn-cancelar">Cancelar</button>
+        <button type="button" class="botao btn-salvar">Salvar</button>
       </div>
       
     </div>

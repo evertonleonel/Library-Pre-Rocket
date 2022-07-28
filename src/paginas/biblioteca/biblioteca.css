@@ -1,0 +1,105 @@
+body {
+  background-color: var(--cor-cinza-fraco);
+}
+
+/* 
+ */
+ .container-navegacao.navegacao--pesquisa {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 76px;
+ }
+
+/* 
+CONTAINER-BIBLIOTECA
+*/
+.container-pesquisa {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 32px;
+}
+
+/* 
+  INPUTS / CAMPO
+*/
+
+.campo.campo--pesquisar {
+  width: 666px;
+  padding-left: 49px;
+}
+
+.campo.campo--filtro {
+  width: 26rem;
+  color: #ADB5BD;;
+}
+
+.campo-pesquisa label{
+  position: relative;
+}
+
+.campo-pesquisa img {
+  position: absolute;
+  top: 170%;
+  left: 15px;
+}
+/* 
+BOTAO-BUCAR
+ */
+
+ .botao-buscar{
+  width: 82px;
+  height: 37px;
+  font-size: clamp(16px,18px,21px);
+  font-weight: 400;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+
+  color: var(--cor-preta);
+  background-color: var(--cor-dourada);
+  position: absolute;
+  top: 120%;
+  right: -622px;
+  cursor: pointer;
+ }
+
+/* 
+CONTAINER-LIVROS
+*/
+
+.container-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
+  gap: 4rem;
+  width: 90%;
+}
+
+.livro-descricao {
+  background-color:var(--cor-cinza-fraco);
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.livro-descricao_nome {
+  text-align: center;
+  font-size: 16px;
+  color: #3E4756;
+}
+
+.livro-descricao_imagem {
+  height: 155px;
+  width: 108px;
+}

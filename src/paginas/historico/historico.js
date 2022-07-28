@@ -1,10 +1,39 @@
 body {
   background-color: var(--cor-cinza-fraco);
-  max-height: 100vh;
 }
 
 /* 
-CADASTRO LIVRO CONTENT 
+  Link voltar
+*/
+.container-navegacao {
+  max-width: 624px;
+}
+
+.link-voltar-home {
+  position: absolute;
+  top: 144px;
+  left: calc(24px + 1.82%);
+
+  display: flex;
+  gap: 8px;
+}
+
+.link-voltar-home a{
+  font-size: calc(16px, 20px, 26px);
+  text-decoration: none;
+}
+
+.link-voltar-home a:first-of-type {
+  color: #00000080;
+}
+
+.link-voltar-home a:last-of-type {
+  color: var(--cor-preta);
+  font-weight: 500;
+}
+
+/* 
+CADASTRO CONTENT
 */
 
 .cadastro-livro-content {
@@ -19,11 +48,10 @@ CONTAINER CADASTRO -> LIVROS
 
 .container-cadastro {
   display: flex;
- 
+  margin: 167px auto;
+  margin-bottom: 251px;
   gap: 48px;
   position: relative;
-  margin-top: 165px;
-  margin-bottom: 165px;
 }
 
 /* 
@@ -67,6 +95,23 @@ INFORMACAO LIVRO
 #livro-sinopse{
   height: 129px;
 }
+ 
+/* 
+CAMPO
+ */
+.campo {
+  display: block;
+  width: 350px;
+  height: 5.3rem;
+  padding: 1.6rem;
+  border: 1px solid #133052;
+  border-radius: 5px;
+  outline: none;
+  font-size: clamp(1.4rem, 1.6rem, 2.1rem);
+  resize: none;
+  background-color: var(--cor-branca);
+}
+
 
 .informacao-livro:nth-child(5) {
   position: relative;
@@ -105,7 +150,7 @@ BOTOES
   cursor: pointer;
  }
  
- .btn-salvar {
+ .salvar {
   background-color: var(--cor-dourada);
   border: none;
 }
@@ -113,7 +158,7 @@ BOTOES
 .botoes-cadastro-livro {
   position: absolute;
   display: block;
-  top: 75%;
+  top: 65%;
   right: 0;
   display: flex;
   gap: 24px;

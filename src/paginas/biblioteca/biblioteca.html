@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+
+  <link rel="stylesheet" href="biblioteca.css">
+  <link rel="stylesheet" href="/src/global/css/global.css">
+  <link rel="stylesheet" href="/src/global/css/transicoes.css">
+
+  <script defer src="/src/global/js/menu.js"></script>
+  <script defer src="biblioteca.js"></script>
+
+  <title>Biblioteca</title>
+</head>
+<body class="no-js">
+  
+  <!-- <div class="transicao  transicao1 esta-ativa"></div> -->
+
+  <header class="cabecalho">
+
+      <figure class="cabecalho_logo">
+        <img src="/src/assets/home/logo.svg" alt="Library - logo">
+      </figure>
+
+      <div class="cabecalho_logout" style="display:none"> 
+        <img src="/src/assets/home/icone_usuario.svg" alt="Icone usuário">
+        <p>Usuário</p>
+        <img src="/src/assets/home/seta.svg" alt="Icone seta de opção">
+      </div>
+
+      <nav class="cabecalho_sair">
+        <a href="/src/paginas/login/login.html">Sair</a>
+      </nav>
+
+  </header>
+
+  <main class="container-navegacao  navegacao--pesquisa">
+    
+    <nav class="link-voltar-home">
+      <img src="/src/assets/cadastro/seta_esquerda.svg" alt="seta voltar">
+      <a href="/src/paginas/home/home.html">Home</a>
+      <a href="/src/paginas/home/home.html">/ Biblioteca</a>
+    </nav>
+    
+    <div class="container-pesquisa">
+      <div class="campo-pesquisa">
+        <label for="pesquisar-livro" class="">
+        <input type="text" placeholder="Pesquisar livro" id="pesquisar-livro" class="campo campo--pesquisar">
+        <img src="/src/assets/biblioteca/icone/lupa.svg" alt="icone lupa pesquisa">
+        <button class="botao-buscar">Buscar</button>
+      </label>
+      </div>
+
+      <div class="campo-pesquisa">
+        <select id="livro-genero" class="campo  campo--filtro" required>
+          <option value="" disabled selected>Filtrar</option>
+          <option value="0">Gênero</option>
+          <option value="1">Autor</option>
+          <option value="2">Data de entrada</option>
+          <option value="3">Título</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="container-livros">
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro01.png" alt="livro: mais esperto que o diabo">
+        <h3 class="livro-descricao_nome"> Mais esperto <br> Que o Diabo</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro02.png" alt="livro: Hereges de duna">
+        <h3 class="livro-descricao_nome"> Hereges de <br> Duna</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro03.png" alt="livro: A revolução dos bixos">
+        <h3 class="livro-descricao_nome">A revolução <br> dos bixos</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro04.png" alt="livro: Mindset">
+        <h3 class="livro-descricao_nome">O homem mais <br> Rico da Babilônia</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro05.png" alt="livro: Pai rico pai pobre">
+        <h3 class="livro-descricao_nome">Pai Rico<br> Pai Pobre</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro06.png" alt="livro: Fundação">
+        <h3 class="livro-descricao_nome">Fundação</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro07.png" alt="livro: Sapies">
+        <h3 class="livro-descricao_nome">Sapies</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro08.png" alt="livro: Os segredos da mente milionária">
+        <h3 class="livro-descricao_nome">Os segredos da <br> mente milionária</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro09.png" alt="livro: Quem pensa enriquece">
+        <h3 class="livro-descricao_nome">Quem pensa<br> enriquece</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro10.png" alt="livro: Ansiedade">
+        <h3 class="livro-descricao_nome">Ansiedade</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro11.png" alt="livro: Gatilhos mentais">
+        <h3 class="livro-descricao_nome">Gatilhos <br> Mentais</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro12.png" alt="livro: O poder da auto responsabilidade">
+        <h3 class="livro-descricao_nome">O poder da <br> auto responsabilidade </h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro13.png" alt="livro: Trabalhe 4 horas por semana">
+        <h3 class="livro-descricao_nome">Trabalhe 4 horas<br> por semana</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro14.png" alt="livro: O milagre da manhã">
+        <h3 class="livro-descricao_nome">O milagre<br> da manhã</h3>
+      </div>
+      <div class="livro-descricao">
+        <img class="livro-descricao_imagem" src="/src/assets/biblioteca/livros/livro15.png" alt="livro: Mindset">
+        <h3 class="livro-descricao_nome">Mindset</h3>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

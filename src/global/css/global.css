@@ -92,20 +92,87 @@ body {
   display: none;
 }
 
+/*--------------------------
+  LINK VOLTAR HOME 
+ ---------------------------
+ */
+ 
+.link-voltar-home {
+  position: absolute;
+  top: 24px;
+  left: calc(24px + 1.82%);
+
+  display: flex;
+  gap: 8px;
+}
+
+.link-voltar-home a{
+  font-size: calc(16px, 20px, 26px);
+  text-decoration: none;
+}
+
+.link-voltar-home a:first-of-type {
+  color: #00000080;
+}
+
+.link-voltar-home a:last-of-type {
+  color: var(--cor-preta);
+  font-weight: 500;
+}
+
 /* 
 ---------------------------
-      CONTAINER NAVEGARCAO 
+    CONTAINER NAVEGARCAO 
 ---------------------------
 */
 
 .container-navegacao {
   max-width: 1318px;
   margin: 24px auto;
- 
+  
   border-radius: 5px;
   background-color: var(--cor-branca);
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  position: relative;
+}
+
+/* 
+  CAMPO (inputs)
+*/
+
+ .campo {
+  display: block;
+  width: 350px;
+  height: 5.3rem;
+  padding: 1.6rem;
+  border: 1px solid #133052;
+  border-radius: 5px;
+  outline: none;
+  font-size: clamp(1.4rem, 1.6rem, 2.1rem);
+  resize: none;
+  background-color: var(--cor-branca);
+}
+
+/* RESPONSIVE */
+
+
+
+@media screen and (max-width: 920px) {
+  .container-navegacao {
+   margin-right: 20px ;
+   margin-left: 20px ;
+  }
+  
+}
+
+@media screen and (max-width: 630px) {
+  .container-navegacao {
+    margin-right: 10px ;
+    margin-left: 10px ;
+  }
+  
 }
