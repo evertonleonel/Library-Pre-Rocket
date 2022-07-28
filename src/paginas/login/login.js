@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
 
   function logar(e){
     e.preventDefault();
-    window.location.href = "/src/html/home.html"
+    window.location.href = "/src/paginas/home/home.html"
   }
   
   logar(e)

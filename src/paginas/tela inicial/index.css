@@ -1,23 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --cor-branca: #fff;
-  --cor-preta: #000000;
-  --cor-dourada:#FFC501;
-}
-
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-size: 1.6rem;
-  font-family: 'Roboto', sans-serif;
-
   background-color: var(--cor-preta);
   background-image: url(../imagens/boas_vindas/estrelas.svg);
   background-repeat: no-repeat;
@@ -39,7 +20,7 @@ body {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+   user-select: none;
 }
 
 .boas-vindas img {

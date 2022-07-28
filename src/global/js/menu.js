@@ -15,5 +15,4 @@
     $sair.style.display = sairEstado == 'none' ? 'block' : 'none';
   })
  
-
 })()

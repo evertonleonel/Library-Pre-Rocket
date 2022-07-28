@@ -1,0 +1,174 @@
+body {
+  background-color: var(--cor-cinza-fraco);
+  background-color: red;
+  font-family: roboto;
+}
+
+/* 
+  Link voltar
+*/
+.container-navegacao {
+  display: relative;
+}
+
+.cadastroLivro_capa {
+  display: inline-block;
+  text-align: center;
+  width: 17.2rem;
+  height: 20.6rem;
+  border: 2px dashed #FFC501;
+}
+
+.cadastroLivro_capa span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  gap: 8px;
+}
+
+.navegar_cadastro_link {
+  position: absolute;
+  top: 144px;
+  left: calc(24px + 1.82%);
+
+  display: flex;
+  gap: 8px;
+}
+
+.navegar_cadastro_link a{
+  font-size: calc(16px, 20px, 26px);
+  text-decoration: none;
+}
+
+.navegar_cadastro_link a:first-of-type {
+  color: #00000080;
+}
+
+.navegar_cadastro_link a:last-of-type {
+  color: var(--cor-preta);
+  font-weight: 500;
+}
+
+/* 
+  Formulario
+ */
+
+.cadastroLivro {
+  display: grid;
+  grid-template-areas: 
+  " capa titulo  autor"
+  " capa sinopse  genero"
+  " .  sinopse   ."
+  " .     sinopse data";
+  gap: 24px;
+}
+
+.cadastroLivro_capa{
+  grid-area: capa;
+}
+
+.cadastroLivro_titulo {
+  grid-area: titulo;
+}
+.cadastroLivro_autor {
+  grid-area: autor;
+}
+.cadastroLivro_sinopse {
+  grid-area: sinopse;
+}
+
+.cadastroLivro_genero {
+  grid-area: genero;
+}
+
+.cadastroLivro_data {
+  grid-area: data;
+  position: relative;
+}
+
+.cadastroLivro_data_icone {
+  position: absolute;
+}
+
+/* input[type='text'] {
+  width: 35rem;
+  height: 5.3rem;
+
+  border: 1px solid #133052;
+  border-radius: 5px;
+  padding-left: 16px;
+  font-size: clamp(14px, 16px, 21px);
+  outline: none;
+  color: #133052;
+}
+
+.cadastroLivro_sinopse  {
+  width: 35rem;
+  height: 12.9rem;
+  resize: none;
+  outline: none;
+  padding: 16px;
+  font-size: clamp(14px, 16px, 21px);
+  color: #133052;
+  border-radius: 5px;
+  border: 1px solid #133052;
+}
+
+
+.botao {
+  width: 14.3rem;
+  height: 5.3rem;
+
+  font-size: clamp(14px,16px,18px);
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--cor-preta);
+  background-color: var(--cor-branca);
+
+  border: 1px solid #133052;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.salvar {
+  background-color: var(--cor-dourada);
+  border: none;
+} */
+
+
+
+
+
+
+
+/* ----- RESPONSIVE ----- */
+
+/* @media screen and (max-width: 1300px) {
+  .container {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .navegar{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr ;
+    margin: 15rem auto;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .navegar{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 10rem auto;
+  }
+} */
+
+
+

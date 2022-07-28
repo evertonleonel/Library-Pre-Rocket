@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+
+  <link rel="stylesheet" href="cadastro.css">
+  <link rel="stylesheet" href="/src/global/css/global.css">
+  <link rel="stylesheet" href="/src/global/css/transicoes.css">
+
+  <script defer src="/src/global/js/menu.js"></script>
+  <script defer src="home.js"></script>
+
+  <title>Cadastrar Livros</title>
+</head>
+<body class="no-js">
+  
+  <!-- <div class="transicao  transicao1 esta-ativa"></div> -->
+
+  <header class="cabecalho">
+
+      <figure class="cabecalho_logo">
+        <img src="/src/assets/home/logo.svg" alt="Library - logo">
+      </figure>
+
+      <div class="cabecalho_logout" style="display:none"> 
+        <img src="/src/assets/home/icone_usuario.svg" alt="Icone usuário">
+        <p>Usuário</p>
+        <img src="/src/assets/home/seta.svg" alt="Icone seta de opção">
+      </div>
+
+      <nav class="cabecalho_sair">
+        <a href="/src/paginas/login/login.html">Sair</a>
+      </nav>
+
+  </header>
+
+  <main class="container-navegacao">
+
+    <div class="navegar_cadastro">
+
+      <nav class="navegar_cadastro_link">
+        <img src="/src/assets/cadastro/seta_esquerda.svg" alt="seta voltar">
+        <a href="">Home</a>
+        <a href="">/ Cadastrar novo livro</a>
+      </nav>
+
+      <form action="#" name="cadastro" class="cadastroLivro">
+
+        <div class="cadastroLivro_capa">
+          <span>
+             <img src="/src/assets/cadastro/adicionar.svg" alt="Icone adicionar capa">
+             <p>Capa</p>
+          </span>
+        </div>
+
+        <label for="cadastroLivro_titulo">
+          <input type="text" placeholder="Título" class="cadastroLivro_titulo">
+        </label>
+
+        <label for="cadastroLivro_autor">
+          <input type="text" placeholder="Autor" class="cadastroLivro_autor">
+        </label>
+
+        <label for="cadastroLivro_sinopse">
+          <textarea class="cadastroLivro_sinopse" placeholder="Sinopse"></textarea>
+        </label>
+
+        <label for="cadastroLivro_genero">
+          <input type="text" placeholder="Gênero" class="cadastroLivro_genero">
+        </label>
+
+        <label for="cadastroLivro_data">
+          <input type="text" placeholder="Data de entrada" class="cadastroLivro_data">
+          <span class="cadastroLivro_data_icone"><img src="/src/assets/cadastro/calendario.svg" alt="Icone calendário"></span>
+        </label>
+        
+      </form>
+
+      <button type="button" class="botao cancelar">Cancelar</button>
+      <button type="button" class="botao salvar">Salvar</button>
+      
+    </div>
+    
+  </main>
+
+</body>
+</html>
