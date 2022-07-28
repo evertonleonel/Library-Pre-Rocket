@@ -42,51 +42,62 @@
   </header>
 
   <main class="container-navegacao">
+    
+    <nav class="link-voltar-home">
+      <img src="/src/assets/cadastro/seta_esquerda.svg" alt="seta voltar">
+      <a href="">Home</a>
+      <a href="">/ Cadastrar novo livro</a>
+    </nav>
 
-    <div class="navegar_cadastro">
+    <div class="cadastro-livro-content">
 
-      <nav class="navegar_cadastro_link">
-        <img src="/src/assets/cadastro/seta_esquerda.svg" alt="seta voltar">
-        <a href="">Home</a>
-        <a href="">/ Cadastrar novo livro</a>
-      </nav>
+      <div class="container-cadastro">
 
-      <form action="#" name="cadastro" class="cadastroLivro">
-
-        <div class="cadastroLivro_capa">
+        <div class="livro-capa">
           <span>
              <img src="/src/assets/cadastro/adicionar.svg" alt="Icone adicionar capa">
              <p>Capa</p>
           </span>
         </div>
-
-        <label for="cadastroLivro_titulo">
-          <input type="text" placeholder="Título" class="cadastroLivro_titulo">
-        </label>
-
-        <label for="cadastroLivro_autor">
-          <input type="text" placeholder="Autor" class="cadastroLivro_autor">
-        </label>
-
-        <label for="cadastroLivro_sinopse">
-          <textarea class="cadastroLivro_sinopse" placeholder="Sinopse"></textarea>
-        </label>
-
-        <label for="cadastroLivro_genero">
-          <input type="text" placeholder="Gênero" class="cadastroLivro_genero">
-        </label>
-
-        <label for="cadastroLivro_data">
-          <input type="text" placeholder="Data de entrada" class="cadastroLivro_data">
-          <span class="cadastroLivro_data_icone"><img src="/src/assets/cadastro/calendario.svg" alt="Icone calendário"></span>
-        </label>
-        
-      </form>
-
-      <button type="button" class="botao cancelar">Cancelar</button>
-      <button type="button" class="botao salvar">Salvar</button>
+  
+        <form action="#" name="cadastro" class="cadastro-novo-livro" method="get">
+          <div class="informacao-livro">
+            <label for="livro-titulo"></label>
+            <input type="text" placeholder="Título" id="livro-titulo" class="campo" required>
+          </div>
+  
+          <div class="informacao-livro">
+            <label for="livro-autor"></label>
+            <input type="text" placeholder="Autor" id="livro-autor" class="campo" required>
+          </div>
+  
+          <div class="informacao-livro">
+            <label for="livro-sinopse"></label>
+            <textarea id="livro-sinopse" placeholder="Sinopse" class="campo"></textarea>
+          </div>
+  
+          <div class="informacao-livro">
+            <label for="livro-genero"></label>
+            <input type="text" placeholder="Gênero" id="livro-genero" class="campo" required>
+          </div>
+          
+          <div class="informacao-livro">
+            <label for="livro-data"></label>
+            <input type="text" placeholder="Data de entrada" id="livro-data" class="campo" required>
+            <span class="livro-data_icone">
+              <img src="/src/assets/cadastro/calendario.svg" alt="Icone calendário">
+            </span>
+          </div>
+        </form>
+      </div>
+  
+      <div class="botoes-cadastro-livro">
+        <button type="button" class="botao cancelar">Cancelar</button>
+        <button type="button" class="botao salvar">Salvar</button>
+      </div>
       
     </div>
+
     
   </main>
 

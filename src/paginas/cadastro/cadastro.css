@@ -1,33 +1,15 @@
 body {
   background-color: var(--cor-cinza-fraco);
-  background-color: red;
-  font-family: roboto;
 }
 
 /* 
   Link voltar
 */
 .container-navegacao {
-  display: relative;
+  max-width: 624px;
 }
 
-.cadastroLivro_capa {
-  display: inline-block;
-  text-align: center;
-  width: 17.2rem;
-  height: 20.6rem;
-  border: 2px dashed #FFC501;
-}
-
-.cadastroLivro_capa span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 90px;
-  gap: 8px;
-}
-
-.navegar_cadastro_link {
+.link-voltar-home {
   position: absolute;
   top: 144px;
   left: calc(24px + 1.82%);
@@ -36,87 +18,115 @@ body {
   gap: 8px;
 }
 
-.navegar_cadastro_link a{
+.link-voltar-home a{
   font-size: calc(16px, 20px, 26px);
   text-decoration: none;
 }
 
-.navegar_cadastro_link a:first-of-type {
+.link-voltar-home a:first-of-type {
   color: #00000080;
 }
 
-.navegar_cadastro_link a:last-of-type {
+.link-voltar-home a:last-of-type {
   color: var(--cor-preta);
   font-weight: 500;
 }
 
 /* 
-  Formulario
- */
+CADASTRO CONTENT
+*/
 
-.cadastroLivro {
-  display: grid;
-  grid-template-areas: 
-  " capa titulo  autor"
-  " capa sinopse  genero"
-  " .  sinopse   ."
-  " .     sinopse data";
-  gap: 24px;
-}
-
-.cadastroLivro_capa{
-  grid-area: capa;
-}
-
-.cadastroLivro_titulo {
-  grid-area: titulo;
-}
-.cadastroLivro_autor {
-  grid-area: autor;
-}
-.cadastroLivro_sinopse {
-  grid-area: sinopse;
-}
-
-.cadastroLivro_genero {
-  grid-area: genero;
-}
-
-.cadastroLivro_data {
-  grid-area: data;
+.cadastro-livro-content {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
-.cadastroLivro_data_icone {
-  position: absolute;
+/* 
+CONTAINER CADASTRO -> LIVROS
+*/
+
+.container-cadastro {
+  display: flex;
+  margin: 167px auto;
+  margin-bottom: 251px;
+  gap: 48px;
+  position: relative;
 }
 
-/* input[type='text'] {
-  width: 35rem;
+/* 
+INFORMACAO LIVRO
+*/
+
+.livro-capa {
+  display: inline-block;
+  text-align: center;
+  color:var(--cor-dourada) ;
+  width: 17.2rem;
+  height: 20.6rem;
+  border: 2px dashed var(--cor-dourada);
+  cursor: pointer;
+}
+
+.livro-capa span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+  gap: 8px;
+}
+
+.cadastro-novo-livro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 24px;
+}
+
+.informacao-livro:nth-child(3){
+  grid-row: 2/4;
+  display: block;
+}
+
+.informacao-livro:nth-child(5){
+  grid-column: 2/3;
+}
+
+#livro-sinopse{
+  height: 129px;
+}
+ 
+/* 
+CAMPO
+ */
+.campo {
+  display: block;
+  width: 350px;
   height: 5.3rem;
-
+  padding: 1.6rem;
   border: 1px solid #133052;
   border-radius: 5px;
-  padding-left: 16px;
-  font-size: clamp(14px, 16px, 21px);
   outline: none;
-  color: #133052;
-}
-
-.cadastroLivro_sinopse  {
-  width: 35rem;
-  height: 12.9rem;
+  font-size: clamp(1.4rem, 1.6rem, 2.1rem);
   resize: none;
-  outline: none;
-  padding: 16px;
-  font-size: clamp(14px, 16px, 21px);
-  color: #133052;
-  border-radius: 5px;
-  border: 1px solid #133052;
 }
 
 
-.botao {
+.informacao-livro:nth-child(5) {
+  position: relative;
+}
+
+.livro-data_icone {
+  position: absolute;
+  bottom: 30%;
+  left: 90%;
+}
+
+/* 
+BOTOES
+ */
+
+ .botao {
   width: 14.3rem;
   height: 5.3rem;
 
@@ -132,43 +142,20 @@ body {
   border-radius: 5px;
 
   cursor: pointer;
-}
-
-.salvar {
+ }
+ 
+ .salvar {
   background-color: var(--cor-dourada);
   border: none;
-} */
-
-
-
-
-
-
-
-/* ----- RESPONSIVE ----- */
-
-/* @media screen and (max-width: 1300px) {
-  .container {
-    margin-right: 24px;
-    margin-left: 24px;
-  }
 }
 
-@media screen and (max-width: 920px) {
-  .navegar{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr ;
-    margin: 15rem auto;
-  }
-}
-
-@media screen and (max-width: 630px) {
-  .navegar{
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin: 10rem auto;
-  }
-} */
-
+.botoes-cadastro-livro {
+  position: absolute;
+  display: block;
+  top: 65%;
+  right: 0;
+  display: flex;
+  gap: 24px;
+ }
 
 
