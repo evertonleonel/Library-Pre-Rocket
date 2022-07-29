@@ -25,7 +25,7 @@ body {
 }
 
 /*
---------------------------------------
+---------------------------------------
   CABEÇAHO -> HEADER -> USUARIO LOGOUT 
 ---------------------------------------
  */
@@ -65,8 +65,15 @@ body {
   text-transform: capitalize;
 }
 
+/* 
+--------------------------
+  DROPDOW - SAIR - LOGOUT
+--------------------------
+*/
+
 .cabecalho_sair {
   text-align: center;
+  z-index: 10;
 }
 
 .cabecalho_sair a {
@@ -92,9 +99,10 @@ body {
   display: none;
 }
 
-/*--------------------------
+/*
+----------------------
   LINK VOLTAR HOME 
- ---------------------------
+----------------------
  */
  
 .link-voltar-home {
@@ -140,8 +148,10 @@ body {
   position: relative;
 }
 
-/* 
+/*
+ -----------------
   CAMPO (inputs)
+-------------------
 */
 
  .campo {
@@ -159,14 +169,11 @@ body {
 
 /* RESPONSIVE */
 
-
-
 @media screen and (max-width: 920px) {
   .container-navegacao {
    margin-right: 20px ;
    margin-left: 20px ;
   }
-  
 }
 
 @media screen and (max-width: 630px) {
@@ -174,5 +181,4 @@ body {
     margin-right: 10px ;
     margin-left: 10px ;
   }
-  
 }

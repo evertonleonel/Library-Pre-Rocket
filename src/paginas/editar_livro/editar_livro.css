@@ -19,10 +19,10 @@ CONTAINER CADASTRO -> LIVROS
 
 .container-cadastro {
   display: flex;
- 
+  margin-top: 95px;
   gap: 48px;
   position: relative;
-  margin-top: 165px;
+  
   margin-bottom: 165px;
 }
 
@@ -50,7 +50,6 @@ INFORMACAO LIVRO
 #livro-imagem-capa {
   display: none;
 }
-
 
 .cadastro-novo-livro {
   display: grid;

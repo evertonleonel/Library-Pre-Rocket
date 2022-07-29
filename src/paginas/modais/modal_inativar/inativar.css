@@ -1,0 +1,87 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  color: #3E4756;
+  font-size: clamp(20px,24px,26px);
+}
+
+.janela-modal {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background-color: white;
+  padding: 40px;
+  padding-top: 70px;
+  max-width: 816px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modal-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fecharAba {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 6px;
+  cursor: pointer;
+}
+
+/* 
+ INATIVAR LIVRO
+*/
+
+.inativar-livro textarea {
+  padding: 16px;
+  resize: none;
+  outline: none;
+  border: 1px solid #707070;
+  width: 729px;
+  height: 129px;
+  border-radius: 5px;
+  color: #133052;
+  font-size: clamp(16px , 18px, 21px);
+}
+
+.botao {
+  text-align: right;
+}
+
+button {
+  height: 53px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ADB5BD;
+  font-size: clamp(14px, 16px, 21px);
+  font-weight: 600;
+  background-color: var(--cor-branca);
+  cursor: pointer;
+}
+
+.btn-inativar {
+  max-width: 101px;
+  border: 1px solid #ED5E5E;
+  color:  #ED5E5E;
+}

@@ -2,8 +2,6 @@ body {
   background-color: var(--cor-cinza-fraco);
 }
 
-/* 
- */
  .container-navegacao.navegacao--pesquisa {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -23,7 +21,7 @@ CONTAINER-BIBLIOTECA
 }
 
 /* 
-  INPUTS / CAMPO
+INPUTS / CAMPO
 */
 
 .campo.campo--pesquisar {
@@ -45,6 +43,7 @@ CONTAINER-BIBLIOTECA
   top: 170%;
   left: 15px;
 }
+
 /* 
 BOTAO-BUCAR
  */

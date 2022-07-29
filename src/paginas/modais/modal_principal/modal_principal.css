@@ -1,0 +1,150 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.janela-modal {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background-color: white;
+  padding: 40px;
+  padding-top: 70px;
+  max-width: 816px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modal-conteudo {
+  display: flex;
+  flex-direction: column;
+}
+
+.fecharAba {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.modal-items {
+  display: flex;
+  gap: 40px;
+}
+
+.descricao {
+  width: 100%;
+  height: 100%;
+}
+
+.descricao h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: clamp(20px, 24px, 26px);
+  color: #3E4756;
+}
+
+.descricao h4 {
+  margin-bottom: 8px;
+  color: #3E4756;
+  font-size: clamp(16px, 18px, 21px);
+  font-weight: 500;
+}
+
+.descricao p {
+  margin-bottom: 24px;
+  color: #3E4756;
+  font-size: clamp(16px, 18px, 21px);
+  font-weight: 300;
+}
+
+.botoes {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+button {
+  height: 53px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ADB5BD;
+  font-size: clamp(14px, 16px, 21px);
+  font-weight: 600;
+  background-color: var(--cor-branca);
+  cursor: pointer;
+}
+.btn-emprestar {
+  width: 272px;
+  position: relative;
+  padding-left: 10%;
+}
+
+.icone_emprestar {
+  position: absolute;
+  top: 25%;
+  left: 82px;
+  width: 21px;
+  height: 22px;
+}
+
+.botoes-manipulacao{
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  margin-right: 36px;
+  margin-left: 36px;
+}
+
+.btn-emprestar {
+  border: 1px solid #ADB5BD;
+  background: #FFC501
+}
+
+.btn-editar {
+  max-width: 90px;
+  color:#167CE2;
+  border: 1px solid #167CE2;
+}
+.btn-inativar {
+  max-width: 101px;
+  border: 1px solid #ED5E5E;
+  color:  #ED5E5E;
+}
+
+.btn-historico {
+  width: 133px;
+  border: 1px solid #ADB5BD;
+  color: #000000;
+} 
+.modal_extra  {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal_extra div {
+  background: #F4F4F4;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.modal_extra span {
+  font-size: calc(20px, 24px, 26px)
+ }
