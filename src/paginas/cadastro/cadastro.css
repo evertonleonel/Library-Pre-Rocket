@@ -22,7 +22,7 @@ CONTAINER CADASTRO -> LIVROS
  
   gap: 48px;
   position: relative;
-  margin-top: 165px;
+  margin-top: 163px;
   margin-bottom: 165px;
 }
 
@@ -42,7 +42,8 @@ INFORMACAO LIVRO
   padding: 92px;
   cursor: pointer;
   color:var(--cor-dourada) ;
- 
+  font-size: 20px;
+  font-weight: 500;
   border: 2px dashed var(--cor-dourada);
   cursor: pointer;
 }
@@ -50,7 +51,6 @@ INFORMACAO LIVRO
 #livro-imagem-capa {
   display: none;
 }
-
 
 .cadastro-novo-livro {
   display: grid;

@@ -115,7 +115,7 @@ body {
 }
 
 .link-voltar-home a{
-  font-size: calc(16px, 20px, 26px);
+  font-size: clamp(20px, 24px, 26px);
   text-decoration: none;
 }
 
