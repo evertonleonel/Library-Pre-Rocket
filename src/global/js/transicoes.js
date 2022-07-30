@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
 
-body.addEventListener('dblclick', () => {
+body.addEventListener('click', () => {
   window.location.href = '/src/paginas/login/login.html'
 });
 
