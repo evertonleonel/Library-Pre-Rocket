@@ -18,6 +18,7 @@ CONTAINER-BIBLIOTECA
  align-items: center;
  justify-content: center;
  gap: 32px;
+ width: 100%;
 }
 
 /* 
@@ -61,7 +62,7 @@ BOTAO-BUCAR
   background-color: var(--cor-dourada);
   position: absolute;
   top: 120%;
-  right: -622px;
+  right: -620px;
   cursor: pointer;
  }
 
@@ -101,4 +102,23 @@ CONTAINER-LIVROS
 .livro-descricao_imagem {
   height: 155px;
   width: 108px;
+}
+
+@media screen and (max-width: 1040px) {
+  .container-pesquisa {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   }
+}
+
+@media screen and (max-width: 830px) {
+  .campo.campo--pesquisar {
+    width: 260px;
+    padding-left: 49px;
+  }
+
+  .botao-buscar{
+    right: -350px;
+  }
 }

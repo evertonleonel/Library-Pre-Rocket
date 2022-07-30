@@ -123,4 +123,49 @@ BOTOES
   gap: 24px;
  }
 
+/* 
+Rsponsive
+ */
 
+ @media screen and (max-width: 1000px) {
+    .cadastro-livro-content {
+      display: flex;
+    }
+
+  .cadastro-novo-livro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botoes-cadastro-livro {
+    top: 82%;
+    right: 0;
+   }
+}
+
+@media screen and (max-width: 670px) {
+  .container-cadastro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botoes-cadastro-livro {
+    top: 85%;
+    right: 0;
+   }
+
+   .livro-capa {
+    margin: 0 auto;
+   }
+}
+
+@media screen and (max-width: 420px) {
+  .campo {
+    max-width: 280px;
+  }
+  
+  .botoes-cadastro-livro {
+    top: 86%;
+    right: -15px;
+   }
+}
