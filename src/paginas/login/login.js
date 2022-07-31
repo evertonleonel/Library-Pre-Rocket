@@ -7,7 +7,6 @@ window.onload = () => {
   setInterval (()=>{
     transicao_el.classList.remove('esta-ativa');
   },500);
-  
 };
 
 form.addEventListener('submit', (e) => {
@@ -22,6 +21,4 @@ form.addEventListener('submit', (e) => {
   }
   
   logar(e)
-
 });
-
