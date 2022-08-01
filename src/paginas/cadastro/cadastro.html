@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
 
   <script defer src="/src/global/js/menu.js"></script>
-  <script defer src="cadastro.js"></script>
+  <script defer type="module" src="cadastro.js"></script>
 
   <title>Cadastrar Livros</title>
 </head>
@@ -92,7 +92,7 @@
           
           <div class="informacao-livro">
             <label for="livro-data">
-              <input type="text" placeholder="Data de entrada" id="livro-data" class="campo" required>
+              <input type="date" placeholder="Data de entrada" id="livro-data" class="campo" required>
               <span class="livro-data_icone">
                 <img src="/assets/calendario.svg" alt="Icone calendário">
               </span>
