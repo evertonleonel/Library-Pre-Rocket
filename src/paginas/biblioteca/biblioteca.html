@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
 
   <script defer src="/src/global/js/menu.js"></script>
-  <script defer src="biblioteca.js"></script>
-
+  <script defer type="module" src="biblioteca.js"></script>
+ 
   <title>Biblioteca</title>
 </head>
 <body class="no-js">
@@ -52,9 +52,9 @@
     <div class="container-pesquisa">
       <div class="campo-pesquisa">
         <label for="campo--pesquisar" >
-        <input type="text" placeholder="Pesquisar livro"  class="campo campo--pesquisar">
+        <input type="text" placeholder="Pesquisar livro"  class="campo campo--pesquisar" autofocus>
         <img src="/assets/lupa.svg" alt="icone lupa pesquisa">
-        <button class="botao-buscar">Buscar</button>
+        <button type="button" class="botao-buscar">Buscar</button>
       </label>
       </div>
 
@@ -70,66 +70,10 @@
     </div>
 
     <div class="container-livros">
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro01.png" alt="livro: mais esperto que o diabo">
-        <h3 class="livro-descricao_nome"> Mais esperto <br> Que o Diabo</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro02.png" alt="livro: Hereges de duna">
-        <h3 class="livro-descricao_nome"> Hereges de <br> Duna</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro03.png" alt="livro: A revolução dos bixos">
-        <h3 class="livro-descricao_nome">A revolução <br> dos bixos</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro04.png" alt="livro: Mindset">
-        <h3 class="livro-descricao_nome">O homem mais <br> Rico da Babilônia</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro05.png" alt="livro: Pai rico pai pobre">
-        <h3 class="livro-descricao_nome">Pai Rico<br> Pai Pobre</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro06.png" alt="livro: Fundação">
-        <h3 class="livro-descricao_nome">Fundação</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro07.png" alt="livro: Sapies">
-        <h3 class="livro-descricao_nome">Sapies</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro08.png" alt="livro: Os segredos da mente milionária">
-        <h3 class="livro-descricao_nome">Os segredos da <br> mente milionária</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro09.png" alt="livro: Quem pensa enriquece">
-        <h3 class="livro-descricao_nome">Quem pensa<br> enriquece</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro10.png" alt="livro: Ansiedade">
-        <h3 class="livro-descricao_nome">Ansiedade</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro11.png" alt="livro: Gatilhos mentais">
-        <h3 class="livro-descricao_nome">Gatilhos <br> Mentais</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro12.png" alt="livro: O poder da auto responsabilidade">
-        <h3 class="livro-descricao_nome">O poder da <br> auto responsabilidade </h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro13.png" alt="livro: Trabalhe 4 horas por semana">
-        <h3 class="livro-descricao_nome">Trabalhe 4 horas<br> por semana</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro14.png" alt="livro: O milagre da manhã">
-        <h3 class="livro-descricao_nome">O milagre<br> da manhã</h3>
-      </div>
-      <div class="livro-descricao">
-        <img class="livro-descricao_imagem" src="/assets/livros/livro15.png" alt="livro: Mindset">
-        <h3 class="livro-descricao_nome">Mindset</h3>
-      </div>
+      <!-- <div class="livro-descricao">
+        <img class="livro-descricao_imagem">
+        <h3 class="livro-descricao_nome"></h3>
+      </div> -->
     </div>
 
   </main>

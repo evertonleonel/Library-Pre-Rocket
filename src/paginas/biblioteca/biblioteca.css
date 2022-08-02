@@ -100,6 +100,14 @@ CONTAINER-LIVROS
   width: 108px;
 }
 
+.hidden {
+  display: none;
+}
+
+p {
+  display: none
+}
+
 @media screen and (max-width: 1040px) {
   .container-pesquisa {
     display: flex;
@@ -115,6 +123,9 @@ CONTAINER-LIVROS
   }
 
   .botao-buscar{
-    right: -350px;
+    position:sticky;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
   }
 }
