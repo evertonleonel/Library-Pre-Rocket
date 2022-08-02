@@ -1,8 +1,3 @@
-body {
-  background-color: var(--cor-cinza-fraco);
-  max-height: 100vh;
-}
-
 /* 
 CADASTRO LIVRO CONTENT 
 */
@@ -19,7 +14,6 @@ CONTAINER CADASTRO -> LIVROS
 
 .container-cadastro {
   display: flex;
-  margin-top: 95px;
   gap: 48px;
   position: relative;
   margin-top: 163px;
@@ -29,21 +23,18 @@ CONTAINER CADASTRO -> LIVROS
 /* 
 INFORMACAO LIVRO
 */
-.livro-capa {
-  max-width: 17.2rem;
-  
-}
 
 .livro-capa label {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 92px;
+  padding: 90px 48px;
   cursor: pointer;
   color:var(--cor-dourada) ;
   font-size: 20px;
- 
+  font-weight: 500;
+
   border: 2px dashed var(--cor-dourada);
   cursor: pointer;
 }
@@ -54,28 +45,43 @@ INFORMACAO LIVRO
 
 .cadastro-novo-livro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
   grid-gap: 24px;
-  
-  
+  grid-template-areas: 
+  ' capa titulo autor'
+  ' capa sinopse genero'
+  ' capa sinopse dataentrada';
+
+  max-width: 944px;
 }
 
-.informacao-livro:nth-child(3){
-  grid-row: 2/4;
-  display: block;
+.informacao-livro:nth-child(1) {
+  grid-area:capa;
+  margin-right: 24px;
 }
 
-.informacao-livro:nth-child(5){
-  grid-column: 2/3;
+.informacao-livro:nth-child(2) {
+  grid-area: titulo;
+}
+
+.informacao-livro:nth-child(3) {
+  grid-area: autor;
+}
+
+.informacao-livro:nth-child(4) {
+  grid-area: sinopse;
+}
+
+.informacao-livro:nth-child(5) {
+  grid-area: genero;
+}
+
+.informacao-livro:nth-child(6) {
+  grid-area: dataentrada;
+  position: relative;
 }
 
 #livro-sinopse{
   height: 129px;
-}
-
-.informacao-livro:nth-child(5) {
-  position: relative;
 }
 
 .livro-data_icone {
@@ -125,4 +131,35 @@ BOTOES
   gap: 24px;
  }
 
+/* 
+Rsponsive
+ */
 
+ @media screen and (max-width: 1000px) {
+  .cadastro-novo-livro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botoes-cadastro-livro {
+    top: 85%;
+    right: 0;
+   }
+}
+
+@media screen and (max-width: 670px) {
+  .livro-capa {
+  margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .campo {
+    max-width: 280px;
+  }
+  
+  .botoes-cadastro-livro {
+    top: 86%;
+    right: -15px;
+    }
+}

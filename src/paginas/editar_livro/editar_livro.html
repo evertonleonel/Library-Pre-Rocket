@@ -53,14 +53,15 @@
 
       <div class="container-cadastro">
 
-        <div class="livro-capa">
-           <label for="livro-imagem-capa">Capa
-              <img src="/assets/adicionar.svg" alt="Icone adicionar capa">
-              <input type="file" placeholder="Capa" id="livro-imagem-capa">
-            </label>
-        </div>
-  
         <form action="#" name="cadastro" class="cadastro-novo-livro" method="get">
+
+          <div class="informacao-livro livro-capa">
+            <label for="livro-imagem-capa">
+               <img src="/assets/adicionar.svg" alt="Icone adicionar capa">Capa
+               <input type="file" placeholder="Capa" id="livro-imagem-capa" accept=".jpg, .gif, .png">
+             </label>
+           </div>
+
           <div class="informacao-livro">
             <label for="livro-titulo"></label>
             <input type="text" placeholder="Título" id="livro-titulo" class="campo" required>
@@ -86,6 +87,7 @@
               <option value="2">Horror</option>
               <option value="3">Romance</option>
             </select>
+            
           </div>
           
           <div class="informacao-livro">
@@ -107,7 +109,6 @@
       
     </div>
 
-    
   </main>
 
 </body>
