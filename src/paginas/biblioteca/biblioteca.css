@@ -100,14 +100,6 @@ CONTAINER-LIVROS
   width: 108px;
 }
 
-.hidden {
-  display: none;
-}
-
-p {
-  display: none
-}
-
 @media screen and (max-width: 1040px) {
   .container-pesquisa {
     display: flex;
