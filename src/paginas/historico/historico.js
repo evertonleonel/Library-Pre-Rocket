@@ -1,167 +1,153 @@
-body {
-  background-color: var(--cor-cinza-fraco);
+import getData from "/src/global/js/global.js";
+
+const corpoTabela = document.querySelector('.corpo-tabela');
+const buscarAluno = document.querySelector('.buscar_aluno');
+const buscarTurma = document.querySelector('.buscar_turma');
+const buscarLivro = document.querySelector('.buscar_livro');
+const buscarDataRetirada = document.querySelector('.buscar_data-retirada');
+const buscarEntrega = document.querySelector('.buscar_data-entrega');
+
+const obterHistoricos = async () => {
+  const data =  await getData();
+  const { books } = data.data;
+
+  const booksTratado = books.map((book) => ({
+    tittle: book.tittle,
+    rentHistory: book.rentHistory
+  }))
+
+  return booksTratado;
 }
 
-/* 
-  Link voltar
-*/
-.container-navegacao {
-  max-width: 624px;
+const renderizarHistorico = (livros) => {
+
+  corpoTabela.innerHTML = '';
+
+  livros.forEach((livro) => {
+
+    let alunos = livro.rentHistory
+
+    alunos.forEach((aluno)=> {
+
+      let tr = document.createElement('tr');
+      tr = corpoTabela.insertRow();
+    
+      let tdAluno = document.createElement('td');
+      tdAluno = tr.insertCell();
+      tdAluno.innerText = aluno.studentName;
+      
+      let tdTurma = document.createElement('td');
+      tdTurma = tr.insertCell();
+      tdTurma.innerText  = aluno.class;
+      
+      let tdLivro = document.createElement('td');
+      tdLivro = tr.insertCell();
+      tdLivro.innerText  = livro.tittle;
+     
+      let tdDataRetirada = document.createElement('td');
+      tdDataRetirada = tr.insertCell();
+      tdDataRetirada.innerText =  aluno.withdrawalDate;
+     
+      let tdDataEntrega = document.createElement('td');
+      tdDataEntrega = tr.insertCell()
+      tdDataEntrega.innerText =  aluno.deliveryDate;
+    })
+   
+  })
+};
+
+// const filtrarLivros = async (pesquisa) => {
+//   const data =  await getData();
+//   const { books } = data.data;
+
+//   const livrosFiltrados = books.forEach((item) => {
+
+//     let alunos = item.rentHistory
+
+//     alunos.filter((aluno)=> {  
+//     aluno.studentName.toLowerCase() == pesquisa.toLowerCase();})
+
+//   })
+
+
+
+// //  let historico =  books.map((item) => {
+// //      return item.rentHistory;
+// //   })
+
+// //   historico.forEach((item => {
+// //     console.log(item[0])
+// //   }))
+
+// // const livrosFiltrados = historico.filter((livro) => (
+// //   livro.studentName.toLowerCase().indexOf(pesquisa.toLowerCase()) > -1
+// // ))
+
+//   renderizarLivros(livrosFiltrados);
+// }
+
+// buscarAluno.addEventListener('input', (e) => {
+//   filtrarLivros(buscarAluno.value);
+// })
+
+window.onload = async () => {
+  const historicos = await obterHistoricos();
+
+  renderizarHistorico(historicos);
 }
 
-.link-voltar-home {
-  position: absolute;
-  top: 144px;
-  left: calc(24px + 1.82%);
+//{
+//  "tittle": "Mais Esperto que o Diabo",
+//  "rentHistory": [
+//    {
+//      "studentName": "Gustavo Kunde",
+//      "class": "T312",
+//      "withdrawalDate": "29/05/2022",
+//      "deliveryDate": "19/06/2022"
+//    },
+//    {
+//      "studentName": "Douglas Miller",
+//      "class": "T127",
+//      "withdrawalDate": "25/06/2022",
+//      "deliveryDate": "12/07/2022"
+//    }
+//  ]
+//}
 
-  display: flex;
-  gap: 8px;
+const filtrarHistorico = async (filtro, campo) => {
+  const livros = await obterHistoricos();
+
+  livros.forEach((livro) => {
+    livro.rentHistory = livro.rentHistory.filter((historico) =>
+      historico[campo].toLowerCase().indexOf(filtro.toLowerCase()) > -1
+    )
+  })
+
+  renderizarHistorico(livros);
 }
 
-.link-voltar-home a{
-  font-size: calc(16px, 20px, 26px);
-  text-decoration: none;
-}
+buscarAluno.addEventListener('input', () => filtrarHistorico(buscarAluno.value, 'studentName'));
+buscarTurma.addEventListener('input', () => filtrarHistorico(buscarTurma.value, 'class'));
 
-.link-voltar-home a:first-of-type {
-  color: #00000080;
-}
+ //function filtrarAlunos(){
+ // 
+ // let linhas = corpoTabela.getElementsByTagName('tr');
+ // let cells = corpoTabela.getElementsByTagName("td"); //
+ // let pesquisar = buscarAluno.value
+ // // console.log(linhas[0].childNodes[2])
+ //
+ // for (let i = 0; i < linhas.length; i++){
+//
+ //   if( linhas[i].childNodes[3].innerText.includes(buscarAluno.value)){
+ //     
+ //     let inclui = linhas[i].childNodes[3]
+ //     inclui.style.color = 'red'
+ //   } else if ( !linhas[i].childNodes[i].innerText.includes(buscarAluno.value)) {
+ //     linhas[i].childNodes[3].style.color = 'blue'
+ //   }
+ // }
+//
+//
+ //console.log(linhas[0].childNodes[0])
 
-.link-voltar-home a:last-of-type {
-  color: var(--cor-preta);
-  font-weight: 500;
-}
-
-/* 
-CADASTRO CONTENT
-*/
-
-.cadastro-livro-content {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-/* 
-CONTAINER CADASTRO -> LIVROS
-*/
-
-.container-cadastro {
-  display: flex;
-  margin: 167px auto;
-  margin-bottom: 251px;
-  gap: 48px;
-  position: relative;
-}
-
-/* 
-INFORMACAO LIVRO
-*/
-
-.livro-capa {
-  display: inline-block;
-  text-align: center;
-  color:var(--cor-dourada) ;
-  width: 17.2rem;
-  height: 20.6rem;
-  border: 2px dashed var(--cor-dourada);
-  cursor: pointer;
-}
-
-.livro-capa span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50%;
-  gap: 8px;
-}
-
-.cadastro-novo-livro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 24px;
-}
-
-.informacao-livro:nth-child(3){
-  grid-row: 2/4;
-  display: block;
-}
-
-.informacao-livro:nth-child(5){
-  grid-column: 2/3;
-}
-
-#livro-sinopse{
-  height: 129px;
-}
- 
-/* 
-CAMPO
- */
-.campo {
-  display: block;
-  width: 350px;
-  height: 5.3rem;
-  padding: 1.6rem;
-  border: 1px solid #133052;
-  border-radius: 5px;
-  outline: none;
-  font-size: clamp(1.4rem, 1.6rem, 2.1rem);
-  resize: none;
-  background-color: var(--cor-branca);
-}
-
-
-.informacao-livro:nth-child(5) {
-  position: relative;
-}
-
-.livro-data_icone {
-  position: absolute;
-  bottom: 30%;
-  left: 90%;
-}
-
-option {
-  box-shadow: 0px 0px 15px #00000033;
-  border-radius: 5px;
-}
-
-/* 
-BOTOES
- */
-
- .botao {
-  width: 14.3rem;
-  height: 5.3rem;
-
-  font-size: clamp(14px,16px,18px);
-  font-weight: 500;
-  text-align: center;
-  text-transform: uppercase;
-
-  color: var(--cor-preta);
-  background-color: var(--cor-branca);
-
-  border: 1px solid #133052;
-  border-radius: 5px;
-
-  cursor: pointer;
- }
- 
- .salvar {
-  background-color: var(--cor-dourada);
-  border: none;
-}
-
-.botoes-cadastro-livro {
-  position: absolute;
-  display: block;
-  top: 65%;
-  right: 0;
-  display: flex;
-  gap: 24px;
- }
-
-
+//}

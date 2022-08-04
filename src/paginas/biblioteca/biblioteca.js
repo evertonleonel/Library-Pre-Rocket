@@ -9,7 +9,7 @@ const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
 
   livros.forEach(item => {
-   
+
     const h3 = document.createElement('h3');
     let titulo = document.createTextNode(item.tittle);
     h3.appendChild(titulo);
@@ -21,6 +21,7 @@ const renderizarLivros = (livros) => {
 
     const div = document.createElement('div');
     div.classList.add('livro-descricao');
+    div.setAttribute('onclick', 'abrirModal('+id+')')
     div.appendChild(img);
     div.appendChild(h3);
    
@@ -49,3 +50,12 @@ window.onload = async () => {
 
   renderizarLivros(books);
 }
+
+// function gerarID(){
+//   return Math.floor(Math.random() * 100)
+// }
+
+// let id = gerarID;
+
+// console.log(id)
+

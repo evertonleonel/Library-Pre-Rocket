@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
 
   <script defer src="/src/global/js/menu.js"></script>
-  <script defer src="historico.js"></script>
+  <script defer type="module" src="historico.js"></script>
 
   <title>Histórico / Empréstimo</title>
 </head>
@@ -59,58 +59,23 @@
             <th>Data da Retirada</th>
             <th>Data da Entrega</th>
           </tr>
-        </thead>
-        <tbody>
           <tr>
-            <td class="filtro-livro"><input type="text"><img src="/assets/filtro.png" alt="icone filtro"></td>
-            <td class="filtro-livro"><input type="text"><img src="/assets/filtro.png" alt="icone filtro"></td>
-            <td class="filtro-livro"><input type="text"><img src="/assets/filtro.png" alt="icone filtro"></td>
-            <td class="filtro-livro"><input type="date"></td>
-            <td class="filtro-livro"><input type="date"></td>
+            <td class="filtro-livro"><input type="text" class="buscar_aluno" ><img src="/assets/filtro.png" alt="icone filtro"></td>
+            <td class="filtro-livro"><input type="text" class="buscar_turma" ><img src="/assets/filtro.png" alt="icone filtro"></td>
+            <td class="filtro-livro"><input type="text" class="buscar_livro" ><img src="/assets/filtro.png" alt="icone filtro"></td>
+            <td class="filtro-livro"><input type="date" class="buscar_data-retirada" ></td>
+            <td class="filtro-livro"><input type="date" class="buscar_data-entrega" ></td>
           </tr>
-          <tr>
+        </thead>
+        <tbody class="corpo-tabela">
+
+          <!-- <tr>
             <td>Pedro O. Garcia</td>
             <td>T41</td>
             <td>Mais esperto que o diabo</td>
             <td>01/01/2022</td>
             <td>10/01/2022</td>
-          </tr>
-          <tr>
-            <td>Tamires V. Moura</td>
-            <td>T54</td>
-            <td>Pai Rico Pai Pobre</td>
-            <td>13/01/2022</td>
-            <td>23/01/2022</td>
-          </tr>
-          <tr>
-            <td>João A. Albuns/td>
-            <td>T42</td>
-            <td>Os segredos da mente milionária</td>
-            <td>23/01/2022</td>
-            <td>28/01/2022</td>
-          </tr>
-          <tr>
-            <td>Gustavo D. Silva</td>
-            <td>T13</td>
-            <td>Mindeset</td>
-            <td>01/02/2022</td>
-            <td>10/02/2022</td>
-          </tr>
-          <tr>
-            <td>Eduarda S. Salgado</td>
-            <td>T28</td>
-            <td>Trabalhe 4 horas por semana</td>
-            <td>10/02/2022</td>
-            <td>17/02/2022</td>
-          </tr>
-          <tr>
-            <td>Gabriel T. Menezes</td>
-            <td>T32</td>
-            <td>Quem pensa enriquece</td>
-            <td>23/02/2022</td>
-            <td>25/02/2022</td>
-          </tr>
-
+          </tr> -->
         </tbody>
       </table>
     </div>

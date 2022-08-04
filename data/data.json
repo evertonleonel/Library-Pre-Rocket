@@ -52,7 +52,20 @@
         "image": "/assets/livros/livro02.png",
         "systemEntryDate": "02/01/2020",
         "synopsis": "Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Quem num gosta di mé, boa gentis num é.Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.",
-        "rentHistory": []
+        "rentHistory": [
+          {
+            "studentName": "Everton Leonel",
+            "class": "T400",
+            "withdrawalDate": "29/05/2022",
+            "deliveryDate": "19/06/2022"
+          },
+          {
+            "studentName": "Rangdris Éoq",
+            "class": "T401",
+            "withdrawalDate": "25/06/2022",
+            "deliveryDate": "12/07/2022"
+          }
+        ]
       },
       {
         "tittle": "A revolução dos bichos",
