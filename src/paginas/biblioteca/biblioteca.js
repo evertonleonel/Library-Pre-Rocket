@@ -1,9 +1,11 @@
 import getData from "/src/global/js/global.js";
 
-const inputPesquisar = document.querySelector('.campo--pesquisar')
-const selectFiltro = document.querySelector('.campo--filtro')
-const botaoBuscar = document.querySelector('.botao-buscar')
-const livrosContainer = document.querySelector('.container-livros')
+const inputPesquisar = document.querySelector('.campo--pesquisar');
+const selectFiltro = document.querySelector('.campo--filtro');
+const botaoBuscar = document.querySelector('.botao-buscar');
+const livrosContainer = document.querySelector('.container-livros');
+const janelaModal =  document.querySelector('.janela-modal');
+const btnFecharModal = document.querySelector('.fecharAba');
 
 const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
@@ -21,7 +23,7 @@ const renderizarLivros = (livros) => {
 
     const div = document.createElement('div');
     div.classList.add('livro-descricao');
-    div.setAttribute('onclick', 'abrirModal('+id+')')
+    // div.setAttribute('onclick', 'mostrarModal')
     div.appendChild(img);
     div.appendChild(h3);
    
@@ -59,3 +61,29 @@ window.onload = async () => {
 
 // console.log(id)
 
+livrosContainer.addEventListener('click', e => {
+
+  console.log(e.target)
+  
+  const livro = document.querySelector('.livro-descricao')
+  
+  livro.addEventListener('click', e => {
+      console.log(e.target)
+      mostrarModal()
+      console.log(livro, 'livro')
+    })
+    
+  
+
+})
+
+
+function mostrarModal(){
+  janelaModal.classList.toggle('mostrarModal')
+}
+
+
+btnFecharModal.addEventListener('click',(e) => {
+ 
+  janelaModal.classList.toggle('mostrarModal')
+})

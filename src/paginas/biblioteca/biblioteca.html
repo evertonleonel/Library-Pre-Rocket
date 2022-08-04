@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="biblioteca.css">
   <link rel="stylesheet" href="/src/global/css/global.css">
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
+  <link rel="stylesheet" href="/src/paginas/modais/modal_principal/modal_principal.css">
 
   <script defer src="/src/global/js/menu.js"></script>
   <script defer type="module" src="biblioteca.js"></script>
@@ -20,7 +21,7 @@
   <title>Biblioteca</title>
 </head>
 <body class="no-js">
-  
+
   <!-- <div class="transicao  transicao1 esta-ativa"></div> -->
 
   <header class="cabecalho">
@@ -77,6 +78,74 @@
     </div>
 
   </main>
+
+    <div class="janela-modal mostrarModal">
+      <div class="modal">
+
+        <div class="modal-conteudo">
+          <img src="/assets/x-fechar.png" class="fecharAba"  height="16px" width="16px" alt="icone fechar aba">
+
+          <div class="modal-items">
+              <figure>
+                <img src="/assets/livros/livro01.png"  width="272px" height="390px"  alt="imagem capa livro">
+              </figure>
+
+              <div class="descricao">
+          
+                <h2 class="descricao_titulo">Mais Esperto Que o Diabo o Mistério Revelado da Liberdade e do Sucesso</h2>
+    
+                <h4>Sinopse</h4>
+                <p class="descricao_sinopse">Napoleon Hill revela que quebrou o código mental do diabo e o forçou a confessar os seus segredos. O manuscrito que resultou deste feito...</p>
+    
+                <h4>Autor</h4>
+                <p class="descricao_autor">Napoleon Hill</p>
+    
+                <h4>Gênero</h4>
+                <p class="descricao_genero">Autoajuda</p>
+    
+                <h4>Data de entrada</h4>
+                <p class="descricao_data">01/02/2022</p>
+
+              </div>
+          </div>
+          <div class="botoes">
+            <div>
+              <button class="btn-emprestar"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_emprestar"> Emprestar</button>
+            </div>
+            <div class="botoes-manipulacao">
+              <button class="btn-editar">Editar</button>
+              <button class="btn-inativar">Inativar</button>
+              <button class="btn-historico">Histórico</button>
+            </div>
+      </div>
+
+       </div>
+       
+        <!-- <div class="modal_extra">
+          <span>
+            <h2>Dados do Aluno</h2>
+          </span>
+          <div>
+            <table>
+              <thead>
+                <th>Nome do aluno</th>
+                <th>Turma</th>
+                <th>Data da retirada</th>
+                <th>Data da entrega</th>
+              </thead>
+              <tbody>
+                <th>Fulano</th>
+                <th>T41</th>
+                <th>29/05/2022</th>
+                <th>19/06/2022</th>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+
+       </div> 
+    </div>  
+
 
 </body>
 </html>

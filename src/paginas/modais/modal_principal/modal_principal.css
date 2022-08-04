@@ -5,7 +5,7 @@
 .janela-modal {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -15,7 +15,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 20;
+  z-index: 10;
+}
+
+.mostrarModal {
+ display: none;
 }
 
 .modal {
@@ -28,6 +32,7 @@
   max-width: 816px;
   border-radius: 5px;
   position: relative;
+ 
 }
 
 .modal-conteudo {
