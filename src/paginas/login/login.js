@@ -4,18 +4,35 @@ const input_email = document.querySelector('.formulario_email')
 const input_senha = document.querySelector('.formulario_senha')
 const botao_submit = document.querySelector('.formulario_btnSubmit')
 
-window.onload = () => {
-  const transicao_el = document.querySelector('.transicao');
+// window.onload = () => {
+//   const transicao_el = document.querySelector('.transicao');
  
-  setInterval (()=>{
-    transicao_el.classList.remove('esta-ativa');
-  },500);
-};
+//   setInterval (()=>{
+//     transicao_el.classList.remove('esta-ativa');
+//   },500);
+// };
 
 function logar(e){
   e.preventDefault();
   window.location.href = "/src/paginas/home/home.html"
 }
+
+const focado = ({target}) => {
+  const span = target.previousElementSibling;
+  span.classList.add('span-ativado');
+}
+
+const desfocado = ({target}) => {
+  if(!target.value){
+    const span = target.previousElementSibling;
+    span.classList.remove('span-ativado');
+  }
+}
+
+input_email.addEventListener('focus', focado);
+input_senha.addEventListener('focus', focado);
+input_email.addEventListener('focusout', desfocado);
+input_senha.addEventListener('focusout', desfocado);
 
 const verificarCampos = async () => {
   const data = await getData();

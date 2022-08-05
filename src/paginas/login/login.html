@@ -18,7 +18,7 @@
   <title>Library - Login</title>
 </head>
 <body>
-  <div class="transicao  transicao1 transicao-gradient esta-ativa"></div>
+  <!-- <div class="transicao  transicao1 transicao-gradient esta-ativa"></div> -->
 
     <div class="container">
       
@@ -26,20 +26,22 @@
 
         <img src="/assets/Logo.svg" alt="Logo library" class="formulario_logo">
         
-        <label >
-          <input type="email" name="email" placeholder="E-mail" class="formulario_email" required>
+        <label class="formulario_label">
+          <span class="span-email">E-mail</span>
+          <input type="email" name="email" class="formulario_email" required>
           <span  class="formulario_iconeEmail input-sem-foco" ><img src="/assets/email.svg" alt="Icone email"></span>
         </label>
        
-        <label >
-          <input type="password" name="senha" placeholder="Senha" class="formulario_senha" required>
+        <label class="formulario_label">
+          <span class="span-senha">Senha</span>
+          <input type="password" name="senha" class="formulario_senha" required>
            <span class="formulario_iconeSenha input-sem-foco"><img src="/assets/senha.svg" alt="Icone senha"></span>
         </label>
   
         <span class="formulario_link">
           <a href="#">Esqueci minha senha</a>
         </span>
-        <button type="click" class="formulario_btnSubmit">Entrar</button>
+        <button type="click" class="formulario_btnSubmit btn-desahabilitado" disabled>Entrar</button>
 
       </form>
 

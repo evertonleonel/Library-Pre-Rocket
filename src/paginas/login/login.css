@@ -44,6 +44,25 @@ body::before {
   position: relative;
 }
 
+/* 
+Placeholder
+ */
+
+.formulario_label .span-senha, .span-email{
+  position: absolute;
+  font-size: 14px;
+  color: var(--cor-cinza-medio-fraco);
+  margin: 16px;
+  cursor: text;
+  transition: all 200ms ease;
+}
+
+.formulario_label .span-ativado{
+  font-size: 1.2rem;
+  margin: 0px 0.8rem;
+}
+
+
 .formulario_logo {
   width: 12rem;
   height: 4.8rem;
@@ -69,6 +88,7 @@ body::before {
 .formulario input:focus {
   outline: 1px solid var(--cor-dourada);
   box-shadow: 0 0 5px var(--cor-dourada);
+  background-color: var(--cor-branca);
 }
 
 .formulario_iconeEmail{
@@ -116,7 +136,7 @@ body::before {
 }
 
 .formulario_btnSubmit:hover {
-  box-shadow: 0 0 15px var(--cor-cinza-medio-fraco);
+  box-shadow: 0 0 10px var(--cor-dourada);
 }
 
 /* Responsivo */
