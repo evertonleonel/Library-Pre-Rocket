@@ -2,8 +2,8 @@ body {
   background-color: var(--cor-preta);
   background-image: url(/assets/estrelas.svg);
   background-repeat: no-repeat;
-
- cursor: pointer;
+  
+  cursor: pointer;
 }
 
 .container {
