@@ -53,37 +53,59 @@ window.onload = async () => {
   renderizarLivros(books);
 }
 
-// function gerarID(){
-//   return Math.floor(Math.random() * 100)
-// }
+livrosContainer.addEventListener('click', (e) => abrirModais(e))
 
-// let id = gerarID;
+async function abrirModais(e){
+  e.preventDefault()
 
-// console.log(id)
+  const data =  await getData();
+  const { books } = data.data;
 
-livrosContainer.addEventListener('click', e => {
-
-  console.log(e.target)
+  let livroModal;
   
-  const livro = document.querySelector('.livro-descricao')
+  if ( e.target.parentNode == livrosContainer){
+    livroModal = e.target;
+  }else{
+    livroModal = e.target.parentNode;
+  }
   
-  livro.addEventListener('click', e => {
-      console.log(e.target)
-      mostrarModal()
-      console.log(livro, 'livro')
-    })
-    
+  if(livroModal.className !== 'livro-descricao'){
+    return
+  }
   
+  livroSelecionado =  books.filter(item => item.tittle.includes(livroModal.textContent))
+  
+  if (livroSelecionado.length > 0){
+    livroSelecionado = livroSelecionado[0]
+  }
+  
+  mostrarModal(e)
+  AtualizarModal()
+}
 
-})
+let livroSelecionado = [];
 
+const modalImg = document.querySelector('#modal_img');
+const modalTitulo = document.querySelector('.descricao_titulo');
+const modalSinopse = document.querySelector('.descricao_sinopse');
+const modalAutor = document.querySelector('.descricao_autor');
+const modalGenero = document.querySelector('.descricao_genero');
+const modalData = document.querySelector('.descricao_data');
+const modalExtra = document.querySelector('.modal_extra');
 
-function mostrarModal(){
+function AtualizarModal(){
+  modalImg.src =  livroSelecionado.image;
+  modalTitulo.innerHTML = livroSelecionado.tittle;
+  modalSinopse.innerHTML = livroSelecionado.synopsis;
+  modalAutor.innerHTML = livroSelecionado.author;
+  modalGenero.innerHTML = livroSelecionado.genre;
+  modalData.innerHTML = livroSelecionado.systemEntryDate;
+}
+
+function mostrarModal(e){
   janelaModal.classList.toggle('mostrarModal')
 }
 
-
 btnFecharModal.addEventListener('click',(e) => {
- 
   janelaModal.classList.toggle('mostrarModal')
 })
