@@ -7,10 +7,10 @@ h2 {
   font-size: clamp(20px,24px,26px);
 }
 
-.janela-modal {
+.janela-modal-inativar {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -23,7 +23,7 @@ h2 {
   z-index: 20;
 }
 
-.modal {
+.modal-inativar {
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -35,13 +35,13 @@ h2 {
   position: relative;
 }
 
-.modal-conteudo {
+.modal-conteudo-inativar {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.fecharAba {
+.fecharAba-inativar {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -85,3 +85,7 @@ button {
   border: 1px solid #ED5E5E;
   color:  #ED5E5E;
 }
+
+.mostrarModal-inativar {
+  display: none;
+ }

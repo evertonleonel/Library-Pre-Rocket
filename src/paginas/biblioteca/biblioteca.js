@@ -5,7 +5,18 @@ const selectFiltro = document.querySelector('.campo--filtro');
 const botaoBuscar = document.querySelector('.botao-buscar');
 const livrosContainer = document.querySelector('.container-livros');
 const janelaModal =  document.querySelector('.janela-modal');
+const janelaModalHistorico = document.querySelector('.janela-modal-historico');
+const janelaModalInativar = document.querySelector('.janela-modal-inativar');
+const janelaModalEmprestar = document.querySelector('.janela-modal-emprestar');
+
 const btnFecharModal = document.querySelector('.fecharAba');
+const btnFecharModalInativar = document.querySelector('.fecharAba-inativar');
+const btnFecharModalHistorico = document.querySelector('.fecharAba-historico');
+const btnFecharModalEmprestar = document.querySelector('.fecharAba-emprestar');
+const btnEditar = document.querySelector('.btn-editar');
+const btnInativar = document.querySelector('.btn-inativar');
+const btnHistorico = document.querySelector('.btn-historico');
+const btnEmprestar = document.querySelector('.btn-emprestar');
 
 const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
@@ -78,9 +89,10 @@ async function abrirModais(e){
   if (livroSelecionado.length > 0){
     livroSelecionado = livroSelecionado[0]
   }
-  
+
   mostrarModal(e)
-  AtualizarModal()
+  atualizarModal()
+  atualizarModalHistorico()
 }
 
 let livroSelecionado = [];
@@ -93,7 +105,7 @@ const modalGenero = document.querySelector('.descricao_genero');
 const modalData = document.querySelector('.descricao_data');
 const modalExtra = document.querySelector('.modal_extra');
 
-function AtualizarModal(){
+function atualizarModal(){
   modalImg.src =  livroSelecionado.image;
   modalTitulo.innerHTML = livroSelecionado.tittle;
   modalSinopse.innerHTML = livroSelecionado.synopsis;
@@ -102,10 +114,80 @@ function AtualizarModal(){
   modalData.innerHTML = livroSelecionado.systemEntryDate;
 }
 
+const corpoTabela = document.querySelector('.corpo-tabela');
+
+function atualizarModalHistorico (){
+
+  livroSelecionado.rentHistory.forEach( (aluno) => {
+    let tr = document.createElement('tr');
+    tr = corpoTabela.insertRow();
+  
+    let tdAluno = document.createElement('td');
+    tdAluno = tr.insertCell();
+    tdAluno.innerText = aluno.studentName;
+    
+    let tdTurma = document.createElement('td');
+    tdTurma = tr.insertCell();
+    tdTurma.innerText  = aluno.class;
+    
+    let tdDataRetirada = document.createElement('td');
+    tdDataRetirada = tr.insertCell();
+    tdDataRetirada.innerText =  aluno.withdrawalDate;
+    
+    let tdDataEntrega = document.createElement('td');
+    tdDataEntrega = tr.insertCell()
+    tdDataEntrega.innerText =  aluno.deliveryDate;
+    
+  })
+}
+
 function mostrarModal(e){
   janelaModal.classList.toggle('mostrarModal')
+  corpoTabela.innerHTML = '';
 }
 
 btnFecharModal.addEventListener('click',(e) => {
-  janelaModal.classList.toggle('mostrarModal')
+  janelaModal.classList.toggle('mostrarModal');
 })
+
+btnFecharModalInativar.addEventListener('click', (e) => {
+  janelaModalInativar.classList.toggle('mostrarModal-inativar');
+  janelaModal.classList.toggle('mostrarModal');
+})
+
+btnFecharModalHistorico.addEventListener('click',(e) => {
+  janelaModalHistorico.classList.toggle('mostrarModal-Historico');
+  janelaModal.classList.toggle('mostrarModal');
+})
+
+btnFecharModalEmprestar.addEventListener('click', (e) => {
+  janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
+  janelaModal.classList.toggle('mostrarModal');
+})
+
+function alternaParaModalHistorico(){
+  janelaModalHistorico.classList.toggle('mostrarModal-Historico');
+  janelaModal.classList.toggle('mostrarModal');
+}
+
+function alternaParaModalInativar(){
+  janelaModalInativar.classList.toggle('mostrarModal-inativar');
+  janelaModal.classList.toggle('mostrarModal');
+}
+
+function alternaParaModalEmprestar(){
+  janelaModal.classList.toggle('mostrarModal');
+  janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
+}
+
+btnEmprestar.addEventListener('click', alternaParaModalEmprestar)
+
+btnHistorico.addEventListener('click', alternaParaModalHistorico)
+
+btnInativar.addEventListener('click', alternaParaModalInativar)
+
+btnEditar.addEventListener('click', abriEditarLivro)
+
+function abriEditarLivro(){
+  window.location = '/src/paginas/editar_livro/editar_livro.html'
+}

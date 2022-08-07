@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="/src/global/css/global.css">
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
   <link rel="stylesheet" href="/src/paginas/modais/modal_principal/modal_principal.css">
+  <link rel="stylesheet" href="/src/paginas/modais/modal_historico/historico.css">
+  <link rel="stylesheet" href="/src/paginas/modais/modal_inativar/inativar.css">
+  <link rel="stylesheet" href="/src/paginas/modais/modal_emprestar/emprestar.css">
   <link rel="stylesheet" href="biblioteca.css">
 
   <script defer src="/src/global/js/menu.js"></script>
@@ -145,6 +148,107 @@
 
        </div> 
     </div>  
+
+
+    <!-- MODAL EMPRESTAR -->
+
+    <div class="janela-modal-emprestar mostrarModal-emprestar">
+      <div class="modal-emprestar">
+        <div class="modal-conteudo-emprestar">
+          <img src="/assets/x-fechar.png" class="fecharAba-emprestar"  height="16px" width="16px" alt="icone fechar aba">
+
+            <div>
+              <h2>Informe os dados do aluno antes de continuar</h2>
+            </div>
+
+            <div class="dados-aluno">
+              <label for="aluno_nome">
+                <input type="text" placeholder="Nome do Aluno" class="campo" id="aluno_nome" required>
+              </label>
+              <label for="aluno_turma">
+                <input type="text" placeholder="Turma" class="campo" id="aluno_turma" required>
+              </label>
+              <label for="aluno_data-retirada">
+                <input type="date" placeholder="Data de retirada" class="campo" id="aluno_data-retirada" required>
+              </label>
+              <label for="aluno_data-entrega">
+                <input type="date" placeholder="Data de entrega" class="campo" id="aluno_data-entrega" required>
+              </label>
+            </div>
+
+            <div class="botao">
+              <button class="btn-emprestar"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_emprestar"> Emprestar</button>
+            </div>
+
+        </div>
+     </div>
+    </div>
+
+    <!-- MODAL INATIVAR -->
+
+    <div class="janela-modal-inativar mostrarModal-inativar">
+      <div class="modal-inativar">
+        <div class="modal-conteudo-inativar">
+          <img src="/assets/x-fechar.png" class="fecharAba-inativar"  height="16px" width="16px" alt="icone fechar aba">
+
+            <div>
+              <h2>Inativar Livro</h2>
+            </div>
+
+            <div class="inativar-livro">
+              <textarea placeholder="Descricao"></textarea>
+            </div>
+
+            <div class="botao">
+              <button class="btn-inativar">Inativar</button>
+            </div>
+
+        </div>
+     </div>
+    </div>
+
+    <!-- MODAL HISTORICO -->
+
+    <div class="janela-modal-historico mostrarModal-Historico">
+      <div class="modal-historico">
+        <div class="modal-conteudo-historico">
+          <img src="/assets/x-fechar.png" class="fecharAba-historico"  height="16px" width="16px" alt="icone fechar aba">
+
+            <div>
+              <h2>Histórico de empréstimos do livro</h2>
+            </div>
+
+            <div class="container-tabela">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Aluno</th>
+                    <th>Turma</th>
+                    <th>Data da Retirada</th>
+                    <th>Data da Entrega</th>
+                  </tr>
+                </thead>
+                <tbody class="corpo-tabela">
+                  <tr>
+                    <td class="filtro-livro"><input type="text"><img src="/assets/filtro.png" alt="icone filtro"></td>
+                    <td class="filtro-livro"><input type="text"><img src="/assets/filtro.png" alt="icone filtro"></td>
+                    <td class="filtro-livro"><input type="date"></td>
+                    <td class="filtro-livro"><input type="date"></td>
+                  </tr>
+                  <!-- <tr>
+                    <td>Pedro O. Garcia</td>
+                    <td>T41</td>
+                    <td>01/01/2022</td>
+                    <td>10/01/2022</td>
+                  </tr> -->
+                 
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+     </div>
+    </div>
 
 
 </body>
