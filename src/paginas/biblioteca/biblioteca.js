@@ -1,4 +1,4 @@
-import getData from "/src/global/js/global.js";
+import { getData, saveBooks } from "/src/global/js/global.js";
 
 const inputPesquisar = document.querySelector('.campo--pesquisar');
 const selectFiltro = document.querySelector('.campo--filtro');
@@ -17,6 +17,8 @@ const btnEditar = document.querySelector('.btn-editar');
 const btnInativar = document.querySelector('.btn-inativar');
 const btnHistorico = document.querySelector('.btn-historico');
 const btnEmprestar = document.querySelector('.btn-emprestar');
+const btnDevolver = document.querySelector('.btn-devolver');
+const btnModalEmprestar = document.querySelector('.btn-ModalEmprestar');
 
 const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
@@ -42,8 +44,8 @@ const renderizarLivros = (livros) => {
   });
 }
 
-const filtrarLivros = async (pesquisa, tipo) => {
-  const data =  await getData();
+const filtrarLivros = (pesquisa, tipo) => {
+  const data = getData();
   const { books } = data.data;
 
   const livrosFiltrados = books.filter((livro) => (
@@ -57,8 +59,8 @@ botaoBuscar.addEventListener('click', (e) => {
   filtrarLivros(inputPesquisar.value, selectFiltro.value);
 })
 
-window.onload = async () => {
-  const data =  await getData();
+window.onload = () => {
+  const data = getData();
   const { books } = data.data;
 
   renderizarLivros(books);
@@ -66,10 +68,10 @@ window.onload = async () => {
 
 livrosContainer.addEventListener('click', (e) => abrirModais(e))
 
-async function abrirModais(e){
+function abrirModais(e){
   e.preventDefault()
 
-  const data =  await getData();
+  const data = getData();
   const { books } = data.data;
 
   let livroModal;
@@ -84,7 +86,7 @@ async function abrirModais(e){
     return
   }
   
-  livroSelecionado =  books.filter(item => item.tittle.includes(livroModal.textContent))
+  livroSelecionado = books.filter(item => item.tittle.includes(livroModal.textContent))
   
   if (livroSelecionado.length > 0){
     livroSelecionado = livroSelecionado[0]
@@ -106,12 +108,32 @@ const modalData = document.querySelector('.descricao_data');
 const modalExtra = document.querySelector('.modal_extra');
 
 function atualizarModal(){
-  modalImg.src =  livroSelecionado.image;
+  modalImg.src = livroSelecionado.image;
   modalTitulo.innerHTML = livroSelecionado.tittle;
   modalSinopse.innerHTML = livroSelecionado.synopsis;
   modalAutor.innerHTML = livroSelecionado.author;
   modalGenero.innerHTML = livroSelecionado.genre;
   modalData.innerHTML = livroSelecionado.systemEntryDate;
+
+  if( livroSelecionado.rentHistory.length === 0 ){
+    modalExtra.classList.add('esconderModalExtra')
+  }
+  else{
+    modalExtra.classList.remove('esconderModalExtra')
+  }
+    
+  atualizarModalExtra()
+}
+
+function alternaEmprestarDevolver(){
+
+  if(livroSelecionado.rentHistory.length > 0){
+    btnEmprestar.classList.add('esconder-botao');
+    btnDevolver.classList.remove('esconder-botao');
+  }else {
+    btnEmprestar.classList.remove('esconder-botao');
+    btnDevolver.classList.add('esconder-botao');
+  }
 }
 
 const corpoTabela = document.querySelector('.corpo-tabela');
@@ -141,6 +163,45 @@ function atualizarModalHistorico (){
   })
 }
 
+const corpo_tabelaExtra = document.querySelector('.corpo_tabela-modal-extra')
+
+function atualizarModalExtra (){
+  
+  // const alunoNome = document.getElementById('aluno_nome').value;
+  // const alunoTurma = document.getElementById('aluno_turma').value;
+  // const alunoDataRetirada = document.getElementById('aluno_data-retirada').value;
+  // const alunoDataEntrega = document.getElementById('aluno_data-entrega').value;
+
+  // if( !alunoNome || !alunoTurma || !alunoDataRetirada || !alunoDataEntrega){
+  //   return
+  // }
+
+  livroSelecionado.rentHistory.forEach((aluno) => {
+
+    let trExtra = document.createElement('tr');
+    trExtra = corpo_tabelaExtra.insertRow();
+  
+    let tdAluno = document.createElement('td');
+    tdAluno = trExtra.insertCell();
+    tdAluno.innerText = aluno.studentName;
+    
+    let tdTurma = document.createElement('td');
+    tdTurma = trExtra.insertCell();
+    tdTurma.innerText  = aluno.class;
+    
+    let tdDataRetirada = document.createElement('td');
+    tdDataRetirada = trExtra.insertCell();
+    tdDataRetirada.innerText =  aluno.withdrawalDate;
+    
+    let tdDataEntrega = document.createElement('td');
+    tdDataEntrega = trExtra.insertCell()
+    tdDataEntrega.innerText =  aluno.deliveryDate;
+  })
+   
+  alternaEmprestarDevolver()
+
+}
+
 function mostrarModal(e){
   janelaModal.classList.toggle('mostrarModal')
   corpoTabela.innerHTML = '';
@@ -148,6 +209,7 @@ function mostrarModal(e){
 
 btnFecharModal.addEventListener('click',(e) => {
   janelaModal.classList.toggle('mostrarModal');
+  modalExtra.classList.toggle('esconderModalExtra')
 })
 
 btnFecharModalInativar.addEventListener('click', (e) => {
@@ -180,14 +242,90 @@ function alternaParaModalEmprestar(){
   janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
 }
 
+const modalAlunoNome = document.querySelector('#aluno_nome');
+const modalAlunoTurma = document.querySelector('#aluno_turma');
+const modalAlunoDataRetirada = document.querySelector('#aluno_data-retirada');
+const modalAlunoDataEntrega = document.querySelector('#aluno_data-entrega');
+
+function limparCamposEmprestarLivro(){
+  modalAlunoNome.value = '';
+  modalAlunoTurma.value = '';
+  modalAlunoDataRetirada.value = '';
+  modalAlunoDataEntrega.value = '';
+}
+
+function formatarData(dataAtual){
+  
+  let formatarData = dataAtual.value
+  return formatarData.split('-').reverse().join('/');
+}
+
+function salvarEmprestimo(){
+  const data = getData();
+  const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
+
+  const newRentHistory = {
+    studentName: modalAlunoNome.value,
+    class: modalAlunoTurma.value,
+    withdrawalDate: formatarData(modalAlunoDataRetirada),
+    deliveryDate: formatarData(modalAlunoDataEntrega)
+  }
+
+  livroSelecionado.rentHistory.push(newRentHistory);
+  livros.push(livroSelecionado);
+  data.data.books = livros;
+
+  saveBooks(data);
+ 
+  modalExtra.classList.remove('esconderModalExtra');
+
+  limparCamposEmprestarLivro()
+}
+
+function emprestarLivro(){
+  salvarEmprestimo();
+  atualizarModalExtra()
+  janelaModal.classList.toggle('mostrarModal');
+  janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
+}
+
+
+function devolverLivro(){
+  
+  const data = getData();
+  const { books } = data.data;
+  
+ 
+  
+  // saveBooks(data);
+  
+  btnEmprestar.classList.remove('esconder-botao');
+    btnDevolver.classList.add('esconder-botao');
+
+  
+  modalExtra.classList.add('esconderModalExtra');
+}
+
 btnEmprestar.addEventListener('click', alternaParaModalEmprestar)
 
 btnHistorico.addEventListener('click', alternaParaModalHistorico)
 
 btnInativar.addEventListener('click', alternaParaModalInativar)
 
+btnModalEmprestar.addEventListener('click', emprestarLivro)
+
+btnDevolver.addEventListener('click', devolverLivro)
+
 btnEditar.addEventListener('click', abriEditarLivro)
 
 function abriEditarLivro(){
   window.location = '/src/paginas/editar_livro/editar_livro.html'
+  console.log(livroSelecionado)
 }
+
+
+function ultimoLivroSelecionado(){
+  const ultimoLivroSelecionado = livroSelecionado;
+} 
+
+export {ultimoLivroSelecionado};

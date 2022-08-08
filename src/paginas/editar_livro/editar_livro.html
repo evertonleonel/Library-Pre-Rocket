@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
   <link rel="stylesheet" href="editar_livro.css">
 
-  <script defer src="/src/global/js/menu.js"></script>
-  <script defer src="editar_livro.css"></script>
+  <script defer type="module" src="/src/global/js/menu.js"></script>
+  <script defer  type="module" src="/src/paginas/biblioteca/biblioteca.js"></script>
+  <script defer type="module"  src="editar_livro.js"></script>
 
   <title>Editar Livros</title>
 </head>
@@ -82,10 +83,10 @@
             <!-- <input type="text" placeholder="Gênero" id="livro-genero" class="campo" required> -->
             <select id="livro-genero" class="campo" required>
               <option value="" disabled selected>Gênero</option>
-              <option value="0">Fantasia</option>
-              <option value="1">Ação e Aventura</option>
-              <option value="2">Horror</option>
-              <option value="3">Romance</option>
+              <option value="fantasy">Fantasia</option>
+              <option value="action">Ação e Aventura</option>
+              <option value="horror">Horror</option>
+              <option value="romance">Romance</option>
             </select>
             
           </div>

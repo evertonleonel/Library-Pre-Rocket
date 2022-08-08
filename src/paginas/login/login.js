@@ -1,4 +1,4 @@
-import getData from "/src/global/js/global.js";
+import { getFileData, getData, saveBooks } from "/src/global/js/global.js";
 
 const input_email = document.querySelector('.formulario_email')
 const input_senha = document.querySelector('.formulario_senha')
@@ -12,9 +12,20 @@ const botao_submit = document.querySelector('.formulario_btnSubmit')
 //   },500);
 // };
 
+async function importarDadosSeVazio() {
+  const books = getData();
+
+  if( books.length > 0 )
+    return;
+
+  const fileData = await getFileData();
+  saveBooks(fileData);
+}
+
 function logar(e){
   e.preventDefault();
   window.location.href = "/src/paginas/home/home.html"
+  importarDadosSeVazio();
 }
 
 const focado = ({target}) => {
@@ -35,8 +46,8 @@ input_email.addEventListener('focusout', desfocado);
 input_senha.addEventListener('focusout', desfocado);
 
 const verificarCampos = async () => {
-  const data = await getData();
-  
+  const data = await getFileData();
+
   botao_submit.addEventListener('click',  (e) => {
     const email = input_email.value;
     const senha = input_senha.value;

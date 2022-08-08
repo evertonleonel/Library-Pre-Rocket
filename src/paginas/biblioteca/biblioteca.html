@@ -12,11 +12,11 @@
 
   <link rel="stylesheet" href="/src/global/css/global.css">
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
-  <link rel="stylesheet" href="/src/paginas/modais/modal_principal/modal_principal.css">
   <link rel="stylesheet" href="/src/paginas/modais/modal_historico/historico.css">
   <link rel="stylesheet" href="/src/paginas/modais/modal_inativar/inativar.css">
   <link rel="stylesheet" href="/src/paginas/modais/modal_emprestar/emprestar.css">
   <link rel="stylesheet" href="biblioteca.css">
+  <link rel="stylesheet" href="/src/paginas/modais/modal_principal/modal_principal.css">
 
   <script defer src="/src/global/js/menu.js"></script>
   <script defer type="module" src="biblioteca.js"></script>
@@ -114,38 +114,56 @@
           <div class="botoes">
             <div>
               <button class="btn-emprestar"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_emprestar"> Emprestar</button>
+              <button class="btn-devolver esconder-botao"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_devolver"> Devolver</button>
             </div>
             <div class="botoes-manipulacao">
               <button class="btn-editar">Editar</button>
               <button class="btn-inativar">Inativar</button>
+              <button class="btn-ativar esconder-botao ">Ativar</button>
               <button class="btn-historico">Histórico</button>
             </div>
       </div>
 
        </div>
+
+       <!-- Modal Extra -->
        
-        <!-- <div class="modal_extra">
+        <div class="modal_extra esconderModalExtra">
           <span>
             <h2>Dados do Aluno</h2>
           </span>
-          <div>
-            <table>
-              <thead>
-                <th>Nome do aluno</th>
-                <th>Turma</th>
-                <th>Data da retirada</th>
-                <th>Data da entrega</th>
-              </thead>
-              <tbody>
-                <th>Fulano</th>
-                <th>T41</th>
-                <th>29/05/2022</th>
-                <th>19/06/2022</th>
-              </tbody>
-            </table>
-          </div>
-        </div> -->
 
+          <table>
+            <thead>
+              <tr>
+              <th>Nome do aluno</th>
+              <th>Turma</th>
+              <th>Data da retirada</th>
+              <th>Data da entrega</th>
+              </tr>
+            </thead>
+            <tbody class="corpo_tabela-modal-extra">
+              <!-- <th>Fulano</th>
+              <th>T41</th>
+              <th>29/05/2022</th>
+              <th>19/06/2022</th> -->
+            </tbody>
+          </table> 
+        </div>
+
+        <!-- MODAL EXTRA INATIVAR -->
+
+        <div class="modal_extra-inativar esconderModalExtra">
+          <span>
+            <h2>Informações da inativação</h2>
+          </span>
+          <div>
+            <h3>Motivo</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, possimus?
+               Placeat, iste quisquam. Optio, repellat.</p>
+          </div>
+        </div>
+    
        </div> 
     </div>  
 
@@ -177,7 +195,7 @@
             </div>
 
             <div class="botao">
-              <button class="btn-emprestar"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_emprestar"> Emprestar</button>
+              <button class="btn-emprestar btn-ModalEmprestar"><img src="/assets/icone_livro.png" alt="icone livro" class="icone_emprestar"> Emprestar</button>
             </div>
 
         </div>
@@ -249,7 +267,6 @@
         </div>
      </div>
     </div>
-
 
 </body>
 </html>

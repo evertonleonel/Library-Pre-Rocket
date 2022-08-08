@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="cadastro.css">
   
   <script defer src="/src/global/js/menu.js"></script>
-  <script defer type="module" src="/src/paginas/cadastro/cadastro.js"></script>
+  <script defer type="module" src="cadastro.js"></script>
 
   <title>Cadastrar Livros</title>
 </head>
@@ -57,8 +57,9 @@
 
           <div class="informacao-livro livro-capa">
             <label for="livro-imagem-capa">
-               <img src="/assets/adicionar.svg" alt="Icone adicionar capa">Capa
-               <input type="file" placeholder="Capa" id="livro-imagem-capa" accept=".jpg, .gif, .png">
+               <img src="/assets/adicionar.svg" id="escolher-imagem" alt="Icone adicionar capa">Capa
+               <input type="file" placeholder="Capa" id="livro-imagem-capa" accept="image/*">
+               <!-- <input type="file" placeholder="Capa" id="livro-imagem-capa" accept=".jpg, .gif, .png"> -->
              </label>
            </div>
 

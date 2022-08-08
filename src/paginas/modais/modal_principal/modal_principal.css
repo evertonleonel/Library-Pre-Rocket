@@ -19,20 +19,22 @@
 }
 
 .mostrarModal {
- display: none;
+  display: none;
 }
 
 .modal {
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  
   display: flex;
   flex-direction: column;
   gap: 60px;
   background-color: white;
-  padding: 40px;
-  padding-top: 70px;
-  max-width: 816px;
+  padding: 4rem;
+  padding-top: 7rem;
+  max-width: 81.6rem;
   border-radius: 5px;
   position: relative;
- 
 }
 
 .modal-conteudo {
@@ -99,9 +101,19 @@ button {
   width: 272px;
   position: relative;
   padding-left: 10%;
+  border: 1px solid #ADB5BD;
+  background: #FFC501;
 }
 
 .icone_emprestar {
+  position: absolute;
+  top: 25%;
+  left: 82px;
+  width: 21px;
+  height: 22px;
+}
+
+.icone_devolver {
   position: absolute;
   top: 25%;
   left: 82px;
@@ -117,9 +129,12 @@ button {
   margin-left: 36px;
 }
 
-.btn-emprestar {
+.btn-devolver {
+  width: 272px;
+  position: relative;
+  padding-left: 10%;
   border: 1px solid #ADB5BD;
-  background: #FFC501
+  background-color: var(--cor-cinza-fraco);
 }
 
 .btn-editar {
@@ -127,10 +142,17 @@ button {
   color:#167CE2;
   border: 1px solid #167CE2;
 }
+
 .btn-inativar {
   max-width: 101px;
   border: 1px solid #ED5E5E;
   color:  #ED5E5E;
+}
+
+.btn-ativar {
+  max-width: 101px;
+  border: 1px solid #49D749;
+  color: #49D749;
 }
 
 .btn-historico {
@@ -144,12 +166,49 @@ button {
   gap: 16px;
 }
 
-.modal_extra div {
-  background: #F4F4F4;
+.modal_extra table {
   border-radius: 5px;
-  padding: 16px;
+  background: #F4F4F4;
+  background-color: var(--cor-cinza-fraco);
+  margin: 0 auto;
 }
 
 .modal_extra span {
-  font-size: calc(20px, 24px, 26px)
+  font-size: calc(20px, 24px, 26px);
  }
+
+.modal_extra th {
+  background-color: transparent;
+  color: #3E4756;
+  font-size: clamp(16px);
+  margin: 0;
+  text-align: left;
+}
+
+.modal_extra-inativar{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal_extra-inativar h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.modal_extra-inativar div {
+  background-color: var(--cor-cinza-fraco);
+  padding: 16px;
+  border-radius: 5px;
+  color: #3E4756;
+}
+
+/* ESCONDER DISPLAYS */
+
+.esconder-botao {
+  display: none;
+}
+
+.esconderModalExtra {
+  display: none;
+}

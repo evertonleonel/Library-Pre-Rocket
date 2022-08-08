@@ -1,4 +1,4 @@
-import getData from "/src/global/js/global.js";
+import { getData } from "/src/global/js/global.js";
 
 const corpoTabela = document.querySelector('.corpo-tabela');
 const buscarAluno = document.querySelector('.buscar_aluno');
@@ -7,8 +7,8 @@ const buscarLivro = document.querySelector('.buscar_livro');
 const buscarDataRetirada = document.querySelector('.buscar_data-retirada');
 const buscarEntrega = document.querySelector('.buscar_data-entrega');
 
-const obterHistoricos = async () => {
-  const data =  await getData();
+const obterHistoricos = () => {
+  const data = getData();
   const { books } = data.data;
 
   const booksTratado = books.map((book) => ({

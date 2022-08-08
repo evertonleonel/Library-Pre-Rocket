@@ -1,16 +1,22 @@
-// let data;
-
-// fetch('/data/data.json').then(response => {
-//   return response.json()
-// }).then(body => {
-//   data = body.data
-//   console.log(data.login[0].email, 'oi sou o login')
-// })
-
-const getData = async () => {
+const getFileData = async () => {
   const response = await fetch('/data/data.json');
   const data = await response.json();
   return data;
 }
 
-export default getData;
+const DATA_KEY = '@biblioteca:data';
+
+const getData = () => {
+  const data = localStorage.getItem(DATA_KEY);
+  return data ? JSON.parse(data) : {};
+}
+
+const saveBooks = (data) => {
+  localStorage.setItem(DATA_KEY, JSON.stringify(data));
+}
+
+export {
+  getFileData,
+  getData,
+  saveBooks
+}
