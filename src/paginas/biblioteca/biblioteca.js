@@ -19,6 +19,7 @@ const btnHistorico = document.querySelector('.btn-historico');
 const btnEmprestar = document.querySelector('.btn-emprestar');
 const btnDevolver = document.querySelector('.btn-devolver');
 const btnModalEmprestar = document.querySelector('.btn-ModalEmprestar');
+const btnModalInativar = document.querySelector('.btn-Modal-Inativar');
 
 const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
@@ -293,34 +294,66 @@ function emprestarLivro(){
   janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
 }
 
-
 function devolverLivro(){
   
-  const data = getData();
-  const { books } = data.data;
-  
- 
-  
-  // saveBooks(data);
-  
   btnEmprestar.classList.remove('esconder-botao');
-    btnDevolver.classList.add('esconder-botao');
+  btnDevolver.classList.add('esconder-botao');
 
-  
   modalExtra.classList.add('esconderModalExtra');
 }
 
-btnEmprestar.addEventListener('click', alternaParaModalEmprestar)
+// function bloquearBotaoDevolver(){
+//   if
+// }
 
-btnHistorico.addEventListener('click', alternaParaModalHistorico)
+function mostrarModalExtraInativacao(){
+  const modalExtraInativacao = document.querySelector('.mostrarModalExtraInativacao');
+  const receberMotivoInativacao = document.querySelector('.motivo-inativacao');
+  const mostrarMotivoInativacao = document.querySelector('.modal-extra-motivoInativar');
 
-btnInativar.addEventListener('click', alternaParaModalInativar)
+  const data = getData();
+ 
+  // const livros = data.data.books.filter((book) => book.status !== livroSelecionado.tittle);
+  const livros = data.data.books.filter((book) => book.status !== livroSelecionado.status);
+  console.log(livros)
 
-btnModalEmprestar.addEventListener('click', emprestarLivro)
+  if(!receberMotivoInativacao){
+    return
+  }
+  
+  const newStatus = {
+    isActive: true,
+    description: receberMotivoInativacao.value
+  }
 
-btnDevolver.addEventListener('click', devolverLivro)
+  // mostrarMotivoInativacao.textContent = receberMotivoInativacao.value;
 
-btnEditar.addEventListener('click', abriEditarLivro)
+  if(mostrarMotivoInativacao.textContent.length > 0){
+    modalExtraInativacao.classList.remove('esconderModalExtra');
+  }
+
+ 
+}
+
+function salvarInativacaoLivro (){
+  alternaParaModalInativar()
+  mostrarModalExtraInativacao();
+  // bloquearBotaoDevolver()
+}
+
+btnEmprestar.addEventListener('click', alternaParaModalEmprestar);
+
+btnHistorico.addEventListener('click', alternaParaModalHistorico);
+
+btnInativar.addEventListener('click', alternaParaModalInativar);
+
+btnModalInativar.addEventListener('click', salvarInativacaoLivro);
+
+btnModalEmprestar.addEventListener('click', emprestarLivro);
+
+btnDevolver.addEventListener('click', devolverLivro);
+
+btnEditar.addEventListener('click', abriEditarLivro);
 
 function abriEditarLivro(){
   window.location = '/src/paginas/editar_livro/editar_livro.html'
