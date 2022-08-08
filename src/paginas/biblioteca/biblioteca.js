@@ -159,7 +159,6 @@ function atualizarModalHistorico (){
     let tdDataEntrega = document.createElement('td');
     tdDataEntrega = tr.insertCell()
     tdDataEntrega.innerText =  aluno.deliveryDate;
-    
   })
 }
 
@@ -263,6 +262,11 @@ function formatarData(dataAtual){
 function salvarEmprestimo(){
   const data = getData();
   const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
+
+  if (!modalAlunoNome.value) return;
+  if (!modalAlunoTurma.value) return;
+  if (!modalAlunoDataRetirada.value) return;
+  if (!modalAlunoDataEntrega.value) return;
 
   const newRentHistory = {
     studentName: modalAlunoNome.value,
