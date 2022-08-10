@@ -51,3 +51,18 @@ function limparCampos(){
 //     uploadImagem.setAttribute('src', reader.result);
 //   }
 // }
+
+"books": [
+  {
+    tittle: "Mais Esperto que o Diabo",
+    author: "Napoleon Hill",
+    genre: "Autoajuda",
+    status: {
+      isActive: false,
+      description: "desativado porque estragou"
+    },
+    image: "/assets/livros/livro01.png",
+    systemEntryDate": "02/01/2020",
+    synopsis: "Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Quem num gosta di mé, boa gentis num é.Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.",
+    rentHistory: [];
+  }];

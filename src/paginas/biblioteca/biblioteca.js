@@ -175,6 +175,7 @@ function atualizarModalExtra (){
   // if( !alunoNome || !alunoTurma || !alunoDataRetirada || !alunoDataEntrega){
   //   return
   // }
+  corpo_tabelaExtra.innerHTML = '';
 
   livroSelecionado.rentHistory.forEach((aluno) => {
 
@@ -322,7 +323,7 @@ function mostrarModalExtraInativacao(){
   }
   
   const newStatus = {
-    isActive: true,
+    isActive: false,
     description: receberMotivoInativacao.value
   }
 
@@ -332,7 +333,6 @@ function mostrarModalExtraInativacao(){
     modalExtraInativacao.classList.remove('esconderModalExtra');
   }
 
- 
 }
 
 function salvarInativacaoLivro (){

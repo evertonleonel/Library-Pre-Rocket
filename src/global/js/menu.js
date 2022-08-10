@@ -7,7 +7,6 @@
   $logout.removeAttribute('style')
 
   $logout.addEventListener('click', ()=> {
-    console.log($logout)
     let $sair = document.querySelector('.cabecalho_sair ');
     
     let sairEstado = $sair.style.display;
