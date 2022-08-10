@@ -168,14 +168,6 @@ const corpo_tabelaExtra = document.querySelector('.corpo_tabela-modal-extra')
 
 function atualizarModalExtra (){
   
-  // const alunoNome = document.getElementById('aluno_nome').value;
-  // const alunoTurma = document.getElementById('aluno_turma').value;
-  // const alunoDataRetirada = document.getElementById('aluno_data-retirada').value;
-  // const alunoDataEntrega = document.getElementById('aluno_data-entrega').value;
-
-  // if( !alunoNome || !alunoTurma || !alunoDataRetirada || !alunoDataEntrega){
-  //   return
-  // }
   corpo_tabelaExtra.innerHTML = '';
 
   livroSelecionado.rentHistory.forEach((aluno) => {

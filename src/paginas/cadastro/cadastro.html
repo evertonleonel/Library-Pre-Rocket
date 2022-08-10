@@ -55,13 +55,15 @@
 
         <form action="#" name="cadastro" class="cadastro-novo-livro" method="get">
 
-          <div class="informacao-livro livro-capa">
-            <label for="livro-imagem-capa">
-               <img src="/assets/adicionar.svg" id="escolher-imagem" alt="Icone adicionar capa">Capa
-               <input type="file" placeholder="Capa" id="livro-imagem-capa" accept="image/*">
-               <!-- <input type="file" placeholder="Capa" id="livro-imagem-capa" accept=".jpg, .gif, .png"> -->
-             </label>
-           </div>
+          <div class=" informacao-livro ">
+            <label class="livro-capa">
+              <img class="livro-capa_icone" src="/assets/adicionar.svg" alt="" >
+              <input type="file" accept="image/ *"  tabindex="0" id="livro-imagem-capa" >
+              <span class="escolher-imagem">
+                Capa
+              </span>
+            </label>
+          </div>
 
           <div class="informacao-livro">
             <label for="livro-titulo"></label>

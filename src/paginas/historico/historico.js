@@ -62,24 +62,6 @@ window.onload = async () => {
   renderizarHistorico(historicos);
 }
 
-//{
-//  "tittle": "Mais Esperto que o Diabo",
-//  "rentHistory": [
-//    {
-//      "studentName": "Gustavo Kunde",
-//      "class": "T312",
-//      "withdrawalDate": "29/05/2022",
-//      "deliveryDate": "19/06/2022"
-//    },
-//    {
-//      "studentName": "Douglas Miller",
-//      "class": "T127",
-//      "withdrawalDate": "25/06/2022",
-//      "deliveryDate": "12/07/2022"
-//    }
-//  ]
-//}
-
 function formatarData(dataAtual){
   let formatarData = dataAtual.value
   return formatarData.split('-').reverse().join('/');
@@ -120,7 +102,6 @@ const filtrarTittle = (filtro) => {
 
   renderizarHistorico(livrosFiltrados);
 }
-
 
 buscarAluno.addEventListener('input', () => filtrarHistorico(buscarAluno.value, 'studentName'));
 buscarTurma.addEventListener('input', () => filtrarHistorico(buscarTurma.value, 'class'));
