@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="/src/global/css/transicoes.css">
   <link rel="stylesheet" href="editar_livro.css">
 
-  <script defer type="module" src="/src/global/js/menu.js"></script>
-  <script defer  type="module" src="/src/paginas/biblioteca/biblioteca.js"></script>
+  <script defer src="/src/global/js/menu.js"></script>
   <script defer type="module"  src="editar_livro.js"></script>
 
   <title>Editar Livros</title>
@@ -56,12 +55,15 @@
 
         <form action="#" name="cadastro" class="cadastro-novo-livro" method="get">
 
-          <div class="informacao-livro livro-capa">
-            <label for="livro-imagem-capa">
-               <img src="/assets/adicionar.svg" alt="Icone adicionar capa">Capa
-               <input type="file" placeholder="Capa" id="livro-imagem-capa" accept=".jpg, .gif, .png">
-             </label>
-           </div>
+          <div class=" informacao-livro ">
+            <label class="livro-capa">
+              <img class="livro-capa_icone" src="/assets/adicionar.svg" alt="" >
+              <input type="file" accept="image/ *"  tabindex="0" id="livro-imagem-capa" >
+              <span class="escolher-imagem">
+                Capa
+              </span>
+            </label>
+          </div>
 
           <div class="informacao-livro">
             <label for="livro-titulo"></label>

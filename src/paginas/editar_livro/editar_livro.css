@@ -24,19 +24,50 @@ CONTAINER CADASTRO -> LIVROS
 INFORMACAO LIVRO
 */
 
-.livro-capa label {
+#livro-imagem-capa {
+  display: none;
+}
+
+.livro-capa  {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 90px 48px;
+  /* padding: 90px 48px; */
   cursor: pointer;
+  width: 172px;
+  height: 206px;
   color:var(--cor-dourada) ;
   font-size: 20px;
   font-weight: 500;
-
-  border: 2px dashed var(--cor-dourada);
+  
+  border: 2px dashed currentColor;
   cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+
+.livro-capa:active {
+  border-color: rgb(75, 255, 84);
+}
+
+.imagem-escolhida {
+  max-width: 172px;
+  max-height: 206px;
+  max-width: 100%;
+  box-shadow: 10px 10px 15px rgba(0, 0, 12, 0.3);
+  transition: box-shadow 300ms ease-in-out;
+}
+
+.imagem-escolhida:hover {
+  box-shadow: 0px 0px 30px var(--cor-dourada);
+} 
+
+.imagem-escolhida:active {
+  box-shadow: 0px 0px 4px #04df8b;
+}
+
+.esconder-imagem {
+  display: none;
 }
 
 #livro-imagem-capa {

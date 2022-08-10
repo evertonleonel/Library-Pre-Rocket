@@ -401,12 +401,7 @@ btnEditar.addEventListener('click', abriEditarLivro);
 btnAtivar.addEventListener('click', salvaAtivacaoLivro);
 
 function abriEditarLivro(){
-  window.location = '/src/paginas/editar_livro/editar_livro.html'
-  console.log(livroSelecionado)
+  window.location = '/src/paginas/editar_livro/editar_livro.html';
+
+  localStorage.setItem('@livroSelecionado:livro', JSON.stringify(livroSelecionado));
 }
-
-function ultimoLivroSelecionado(){
-  const ultimoLivroSelecionado = livroSelecionado;
-} 
-
-export {ultimoLivroSelecionado};
