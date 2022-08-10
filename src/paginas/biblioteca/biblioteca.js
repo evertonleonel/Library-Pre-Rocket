@@ -15,6 +15,7 @@ const btnFecharModalHistorico = document.querySelector('.fecharAba-historico');
 const btnFecharModalEmprestar = document.querySelector('.fecharAba-emprestar');
 const btnEditar = document.querySelector('.btn-editar');
 const btnInativar = document.querySelector('.btn-inativar');
+const btnAtivar = document.querySelector('.btn-ativar');
 const btnHistorico = document.querySelector('.btn-historico');
 const btnEmprestar = document.querySelector('.btn-emprestar');
 const btnDevolver = document.querySelector('.btn-devolver');
@@ -126,7 +127,7 @@ function atualizarModal(){
   atualizarModalExtra()
 }
 
-function alternaEmprestarDevolver(){
+function alternaBotoesEmprestarDevolver(){
 
   if(livroSelecionado.rentHistory.length > 0){
     btnEmprestar.classList.add('esconder-botao');
@@ -199,7 +200,7 @@ function atualizarModalExtra (){
     tdDataEntrega.innerText =  aluno.deliveryDate;
   })
    
-  alternaEmprestarDevolver()
+  alternaBotoesEmprestarDevolver()
 
 }
 
@@ -296,27 +297,67 @@ function emprestarLivro(){
 }
 
 function devolverLivro(){
-  
   btnEmprestar.classList.remove('esconder-botao');
   btnDevolver.classList.add('esconder-botao');
 
   modalExtra.classList.add('esconderModalExtra');
 }
 
-// function bloquearBotaoDevolver(){
-//   if
-// }
+function bloquearBotaoDevolvereEmprestar(){
+  btnDevolver.disabled = true;
+  btnEmprestar.disabled = true;
+  btnDevolver.style.cursor = 'default';
+  btnEmprestar.style.cursor = 'default';
+  btnDevolver.style.opacity = '0.5';
+  btnEmprestar.style.opacity = '0.5';
+  
+}
 
-function mostrarModalExtraInativacao(){
-  const modalExtraInativacao = document.querySelector('.mostrarModalExtraInativacao');
+function desbloquerBotaoDevolvereEmprestar(){
+  btnDevolver.disabled = false;
+  btnEmprestar.disabled = false;
+  btnDevolver.style.cursor = 'pointer';
+  btnEmprestar.style.cursor = 'pointer';
+  btnDevolver.style.opacity = '1';
+  btnEmprestar.style.opacity = '1';
+}
+
+
+function salvaAtivacaoLivro (){
+  const data = getData();
+  const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
+
+  
+  const newStatus = {
+    isActive: true,
+    description: ''
+  };
+
+  livroSelecionado.status = newStatus;
+
+  livros.push(livroSelecionado);
+
+  data.data.books = livros;
+  
+  saveBooks(data);
+  
+  const modalExtraInativacao = document.querySelector('.modal_extra-inativar');
+  
+  modalExtraInativacao.classList.add('esconderModalExtra');
+
+  btnInativar.classList.remove('esconder-botao');
+  btnAtivar.classList.add('esconder-botao');
+  desbloquerBotaoDevolvereEmprestar()
+}
+
+
+function salvarInativacaoLivro (){
+  const data = getData();
+  const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
+
+  const modalExtraInativacao = document.querySelector('.modal_extra-inativar');
   const receberMotivoInativacao = document.querySelector('.motivo-inativacao');
   const mostrarMotivoInativacao = document.querySelector('.modal-extra-motivoInativar');
-
-  const data = getData();
- 
-  // const livros = data.data.books.filter((book) => book.status !== livroSelecionado.tittle);
-  const livros = data.data.books.filter((book) => book.status !== livroSelecionado.status);
-  console.log(livros)
 
   if(!receberMotivoInativacao){
     return
@@ -325,20 +366,30 @@ function mostrarModalExtraInativacao(){
   const newStatus = {
     isActive: false,
     description: receberMotivoInativacao.value
-  }
+  };
 
-  // mostrarMotivoInativacao.textContent = receberMotivoInativacao.value;
+  livroSelecionado.status = newStatus;
 
-  if(mostrarMotivoInativacao.textContent.length > 0){
-    modalExtraInativacao.classList.remove('esconderModalExtra');
-  }
+  livros.push(livroSelecionado);
 
-}
+  data.data.books = livros;
 
-function salvarInativacaoLivro (){
+  saveBooks(data);
+
+  mostrarMotivoInativacao.textContent = receberMotivoInativacao.value;
+  
   alternaParaModalInativar()
-  mostrarModalExtraInativacao();
-  // bloquearBotaoDevolver()
+
+  modalExtraInativacao.classList.remove('esconderModalExtra');
+  modalExtra.classList.add('esconderModalExtra');
+
+  receberMotivoInativacao.value = '';
+
+  bloquearBotaoDevolvereEmprestar();
+
+  btnInativar.classList.add('esconder-botao');
+  btnAtivar.classList.remove('esconder-botao');
+  
 }
 
 btnEmprestar.addEventListener('click', alternaParaModalEmprestar);
@@ -355,11 +406,12 @@ btnDevolver.addEventListener('click', devolverLivro);
 
 btnEditar.addEventListener('click', abriEditarLivro);
 
+btnAtivar.addEventListener('click', salvaAtivacaoLivro);
+
 function abriEditarLivro(){
   window.location = '/src/paginas/editar_livro/editar_livro.html'
   console.log(livroSelecionado)
 }
-
 
 function ultimoLivroSelecionado(){
   const ultimoLivroSelecionado = livroSelecionado;
