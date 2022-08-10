@@ -27,6 +27,7 @@ Navegacao
   border-radius: 5px;
   background-color: var(--cor-cinza-fraco);
   cursor: pointer;
+  transition: background-color 300ms ease-in-out;
 }
 
 .navegar_opcoes figure {
@@ -60,8 +61,13 @@ Navegacao
 }
 
 .navegar_opcoes:hover {
+  transition: box-shadow 300ms ease-in-out;
   background-color: var(--cor-dourada);
-  box-shadow: 0px 0px 15px var(--cor-cinza-fraco);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navegar_opcoes:active {
+  box-shadow: 0px 0px 30px rgb(59, 25, 248);
 }
 
 /* ----- RESPONSIVE ----- */
