@@ -79,6 +79,45 @@ button {
   width: 272px;
   position: relative;
   padding-left: 3%;
+  border: 1px solid #ADB5BD;
+  background: #FFC501;
+  position: relative;
+}
+
+.btn-emprestar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all .5s;
+}
+
+.btn-emprestar:hover::before {
+  background: rgba(0, 0, 0, .2);
+}
+
+.btn-devolver {
+  position: relative;
+}
+
+.btn-devolver::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all .5s;
+}
+
+.btn-devolver:hover::before {
+  background: rgba(0, 0, 0, .2);
 }
 
 .icone_emprestar {
@@ -87,11 +126,6 @@ button {
   left: 25%;
   width: 21px;
   height: 22px;
-}
-
-.btn-emprestar {
-  border: 1px solid #ADB5BD;
-  background: #FFC501;
 }
 
 .mostrarModal-emprestar {

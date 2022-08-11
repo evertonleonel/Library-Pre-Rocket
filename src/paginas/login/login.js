@@ -1,23 +1,23 @@
 import { getFileData, getData, saveBooks } from "/src/global/js/global.js";
 
-const input_email = document.querySelector('.formulario_email')
-const input_senha = document.querySelector('.formulario_senha')
-const botao_submit = document.querySelector('.formulario_btnSubmit')
+const input_email = document.querySelector('.formulario_email');
+const input_senha = document.querySelector('.formulario_senha');
+const botao_submit = document.querySelector('.formulario_btnSubmit');
 
-// window.onload = () => {
-//   const transicao_el = document.querySelector('.transicao');
+window.onload = () => {
+  const transicao_el = document.querySelector('.transicao');
  
-//   setInterval (()=>{
-//     transicao_el.classList.remove('esta-ativa');
-//   },500);
-// };
+  setInterval (()=>{
+    transicao_el.classList.remove('esta-ativa');
+  },500);
+};
 
 async function importarDadosSeVazio() {
   const books = getData();
-
+  
   if( books.length > 0 )
-    return;
-
+  return;
+  
   const fileData = await getFileData();
   saveBooks(fileData);
 }
@@ -57,11 +57,11 @@ const verificarCampos = async () => {
       alert('Informe os campos')
       return
     }
-
+    
     const {login} = data.data
     
     const found = login.find((login) => login.email === email && login.password === senha);
-   
+    
     if(found){
       logar(e)
     }else {

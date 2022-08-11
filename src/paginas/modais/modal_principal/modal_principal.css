@@ -15,7 +15,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
   z-index: 10;
+  animation: modalAnimado 0.5s;
 }
 
 .mostrarModal {
@@ -168,7 +170,28 @@ button {
   width: 133px;
   border: 1px solid #ADB5BD;
   color: #000000;
-} 
+}
+
+.botoes-modal {
+  position: relative;
+}
+
+.botoes-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all .5s;
+}
+
+.botoes-modal:hover::before {
+  background: rgba(0, 0, 0, .2);
+}
+
 .modal_extra  {
   display: flex;
   flex-direction: column;
@@ -220,4 +243,15 @@ button {
 
 .esconderModalExtra {
   display: none;
+}
+
+@keyframes modalAnimado {
+  from{
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
 }
