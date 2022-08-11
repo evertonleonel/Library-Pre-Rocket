@@ -1,4 +1,4 @@
-import { getData } from "/src/global/js/global.js";
+import { getData, saveBooks } from "/src/global/js/global.js";
 
 const inputFile = document.getElementById('livro-imagem-capa');
 const inputTitulo = document.getElementById('livro-titulo');
@@ -9,8 +9,6 @@ const inputData = document.getElementById('livro-data');
 
 const btnSalvar = document.querySelector('.btn-salvar');
 const btnCancelar = document.querySelector('.btn-cancelar');
-
-const data = getData();
 
 const imageSelecionada = document.querySelector('.escolher-imagem');
 
@@ -46,40 +44,63 @@ inputFile.addEventListener('change', (e) => {
   }
 });
 
+function formatarData(dataAtual){
+  
+  let formatarData = dataAtual.value
+  return formatarData.split('-').reverse().join('/');
+}
 
+function salvarNovoLivro (){
+  const data = getData();
+  // const livros = data.data.books;
+
+  const imagemBase64 = document.querySelector('.imagem-escolhida').src
+ 
+  if(!inputFile.value) return;
+  if(!inputTitulo.value) return;
+  if(!inputAutor.value) return;
+  if(!inputSinopse.value) return;
+  if(!inputGenero.value) return;
+  if(!inputData.value)  return;
+  
+  const newBook = 
+  {
+    tittle: inputTitulo.value,
+    author: inputAutor.value,
+    genre: inputGenero.value,
+    status: {
+      isActive: true,
+      description: ""
+    },
+    image: imagemBase64,
+    systemEntryDate: formatarData(inputData),
+    synopsis:  inputSinopse.value,
+    rentHistory: []
+  };
+  
+  data.data.books.push(newBook);
+
+  saveBooks(data);
+
+  limparCampos();
+}
+
+
+function voltarParaBiblioteca(){
+  limparCampos();
+};
+
+btnCancelar.addEventListener('click', voltarParaBiblioteca);
+
+btnSalvar.addEventListener('click', salvarNovoLivro)
 
 function limparCampos(){
-  uploadImagem.value = '';
+  imageSelecionada.innerHTML = ` ${imagemTexto}`;
+  document.querySelector('.livro-capa_icone').classList.remove('esconder-imagem');
+  document.querySelector('.livro-capa').style.border = '2px dashed currentColor';
   inputTitulo.value = '';
   inputAutor.value = '';
   inputSinopse.value = '';
   inputGenero.value = '';
   inputData.value = '';
 }
-
-// uploadImagem.onchange = () => {
-//   let reader = new FileReader();
-//   reader.readAsDataURL(uploadImagem.files[0]);
-//   console.log(uploadImagem.files[0]);
-//   reader.onload = () =>{
-//     uploadImagem.setAttribute('src', reader.result);
-//   }
-// }
-
-
-
-
-// "books": [
-//   {
-//     tittle: "Mais Esperto que o Diabo",
-//     author: "Napoleon Hill",
-//     genre: "Autoajuda",
-//     status: {
-//       isActive: false,
-//       description: "desativado porque estragou"
-//     },
-//     image: "/assets/livros/livro01.png",
-//     systemEntryDate": "02/01/2020",
-//     synopsis: "Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Quem num gosta di mé, boa gentis num é.Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.",
-//     rentHistory: [];
-//   }];
