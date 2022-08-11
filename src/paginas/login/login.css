@@ -1,6 +1,5 @@
 body {
   height: 100vh;
-  
   background-image: url(/assets/biblioteca.png);
   background-attachment:fixed;
   background-size: cover;
@@ -61,7 +60,6 @@ Placeholder
   font-size: 1.2rem;
   margin: 0px 0.8rem;
 }
-
 
 .formulario_logo {
   width: 12rem;

@@ -45,6 +45,7 @@ body {
 .cabecalho_logo img {
   width: 12rem;
   height: 4.8rem;
+  transition: all 250ms ease-in-out;
 }
 
 .cabecalho_logout {
@@ -53,9 +54,11 @@ body {
   justify-content: center;
   cursor: pointer;
 }
+
 .cabecalho_logout img{
   height: 24px;
   width: 24px;
+  transition: all 250ms ease-in-out;
 }
 
 .cabecalho_logout p {
@@ -64,6 +67,16 @@ body {
   color: var(--cor-cinza-medio);
   font-size: 18px;
   text-transform: capitalize;
+  transition: all 250ms ease-in-out;
+}
+
+.cabecalho_logout img:hover {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.cabecalho_logout p:hover {
+  color: var(--cor-dourada)
 }
 
 /* 
@@ -76,7 +89,6 @@ body {
   text-align: center;
   z-index: 10;
 }
-
 
 .cabecalho_sair a {
   font-size: 18px;
@@ -121,6 +133,7 @@ body {
 .link-voltar-home a{
   font-size: clamp(20px, 24px, 26px);
   text-decoration: none;
+  transition: all 250ms ease-in-out;
 }
 
 .link-voltar-home a:first-of-type {
@@ -130,6 +143,10 @@ body {
 .link-voltar-home a:last-of-type {
   color: var(--cor-preta);
   font-weight: 500;
+}
+
+.link-voltar-home a:hover {
+  color: var(--cor-dourada);
 }
 
 /* 

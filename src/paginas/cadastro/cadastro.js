@@ -31,7 +31,7 @@ inputFile.addEventListener('change', (e) => {
       img.classList.add('imagem-escolhida');
       imageSelecionada.innerHTML = '';
       imageSelecionada.appendChild(img);
-    })
+    });
 
     document.querySelector('.livro-capa_icone').classList.add('esconder-imagem')
     document.querySelector('.livro-capa').style.border = 'none'
@@ -41,19 +41,18 @@ inputFile.addEventListener('change', (e) => {
     imageSelecionada.innerHTML = ` ${imagemTexto}`;
     document.querySelector('.livro-capa_icone').classList.remove('esconder-imagem');
     document.querySelector('.livro-capa').style.border = '2px dashed currentColor';
-  }
+  };
 });
 
 function formatarData(dataAtual){
   
   let formatarData = dataAtual.value
   return formatarData.split('-').reverse().join('/');
-}
+};
 
 function salvarNovoLivro (){
   const data = getData();
-  // const livros = data.data.books;
-
+  
   const imagemBase64 = document.querySelector('.imagem-escolhida').src
  
   if(!inputFile.value) return;
@@ -83,7 +82,7 @@ function salvarNovoLivro (){
   saveBooks(data);
 
   limparCampos();
-}
+};
 
 
 function voltarParaBiblioteca(){
@@ -92,7 +91,7 @@ function voltarParaBiblioteca(){
 
 btnCancelar.addEventListener('click', voltarParaBiblioteca);
 
-btnSalvar.addEventListener('click', salvarNovoLivro)
+btnSalvar.addEventListener('click', salvarNovoLivro);
 
 function limparCampos(){
   imageSelecionada.innerHTML = ` ${imagemTexto}`;
@@ -103,4 +102,4 @@ function limparCampos(){
   inputSinopse.value = '';
   inputGenero.value = '';
   inputData.value = '';
-}
+};

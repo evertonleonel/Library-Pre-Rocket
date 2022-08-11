@@ -9,14 +9,14 @@ const DATA_KEY = '@biblioteca:data';
 const getData = () => {
   const data = localStorage.getItem(DATA_KEY);
   return data ? JSON.parse(data) : {};
-}
+};
 
 const saveBooks = (data) => {
   localStorage.setItem(DATA_KEY, JSON.stringify(data));
-}
+};
 
 export {
   getFileData,
   getData,
   saveBooks
-}
+};

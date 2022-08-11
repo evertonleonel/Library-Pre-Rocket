@@ -22,6 +22,7 @@ const btnDevolver = document.querySelector('.btn-devolver');
 const btnModalEmprestar = document.querySelector('.btn-ModalEmprestar');
 const btnModalInativar = document.querySelector('.btn-Modal-Inativar');
 
+// Filtros Historico Modal
 const filtroAluno = document.querySelector('.buscar_aluno');
 const filtroTurma = document.querySelector('.buscar_turma');
 const filtroDataRetirada = document.querySelector('.buscar_data-retirada');
@@ -49,7 +50,7 @@ const renderizarLivros = (livros) => {
    
     livrosContainer.appendChild(div);
   });
-}
+};
 
 const filtrarLivros = (pesquisa, tipo) => {
   const data = getData();
@@ -57,10 +58,10 @@ const filtrarLivros = (pesquisa, tipo) => {
 
   const livrosFiltrados = books.filter((livro) => (
     livro[tipo].toLowerCase().indexOf(pesquisa.toLowerCase()) > -1
-  ))
+  ));
 
   renderizarLivros(livrosFiltrados);
-}
+};
 
 botaoBuscar.addEventListener('click', (e) => {
   filtrarLivros(inputPesquisar.value, selectFiltro.value);
@@ -71,7 +72,7 @@ window.onload = () => {
   const { books } = data.data;
 
   renderizarLivros(books);
-}
+};
 
 livrosContainer.addEventListener('click', (e) => abrirModais(e))
 
@@ -102,7 +103,7 @@ function abrirModais(e){
   mostrarModal(e)
   atualizarModal()
   atualizarModalHistorico()
-}
+};
 
 let livroSelecionado = [];
 
@@ -224,51 +225,51 @@ function atualizarModalExtra (){
     let tdDataEntrega = document.createElement('td');
     tdDataEntrega = trExtra.insertCell()
     tdDataEntrega.innerText =  aluno.deliveryDate;
-  })
+  });
    
-  alternaBotoesEmprestarDevolver()
+  alternaBotoesEmprestarDevolver();
 
-}
+};
 
 function mostrarModal(e){
   janelaModal.classList.toggle('mostrarModal')
   corpoTabela.innerHTML = '';
-}
+};
 
 btnFecharModal.addEventListener('click',(e) => {
   janelaModal.classList.toggle('mostrarModal');
   modalExtra.classList.toggle('esconderModalExtra')
-})
+});
 
 btnFecharModalInativar.addEventListener('click', (e) => {
   janelaModalInativar.classList.toggle('mostrarModal-inativar');
   janelaModal.classList.toggle('mostrarModal');
-})
+});
 
 btnFecharModalHistorico.addEventListener('click',(e) => {
   janelaModalHistorico.classList.toggle('mostrarModal-Historico');
   janelaModal.classList.toggle('mostrarModal');
-})
+});
 
 btnFecharModalEmprestar.addEventListener('click', (e) => {
   janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
   janelaModal.classList.toggle('mostrarModal');
-})
+});
 
 function alternaParaModalHistorico(){
   janelaModalHistorico.classList.toggle('mostrarModal-Historico');
   janelaModal.classList.toggle('mostrarModal');
-}
+};
 
 function alternaParaModalInativar(){
   janelaModalInativar.classList.toggle('mostrarModal-inativar');
   janelaModal.classList.toggle('mostrarModal');
-}
+};
 
 function alternaParaModalEmprestar(){
   janelaModal.classList.toggle('mostrarModal');
   janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
-}
+};
 
 const modalAlunoNome = document.querySelector('#aluno_nome');
 const modalAlunoTurma = document.querySelector('#aluno_turma');
@@ -280,13 +281,12 @@ function limparCamposEmprestarLivro(){
   modalAlunoTurma.value = '';
   modalAlunoDataRetirada.value = '';
   modalAlunoDataEntrega.value = '';
-}
+};
 
 function formatarData(dataAtual){
-  
   let formatarData = dataAtual.value
   return formatarData.split('-').reverse().join('/');
-}
+};
 
 function salvarEmprestimo(){
   const data = getData();
@@ -302,7 +302,7 @@ function salvarEmprestimo(){
     class: modalAlunoTurma.value,
     withdrawalDate: formatarData(modalAlunoDataRetirada),
     deliveryDate: formatarData(modalAlunoDataEntrega)
-  }
+  };
 
   livroSelecionado.rentHistory.push(newRentHistory);
   livros.push(livroSelecionado);
@@ -312,22 +312,22 @@ function salvarEmprestimo(){
  
   modalExtra.classList.remove('esconderModalExtra');
 
-  limparCamposEmprestarLivro()
-}
+  limparCamposEmprestarLivro();
+};
 
 function emprestarLivro(){
   salvarEmprestimo();
   atualizarModalExtra()
   janelaModal.classList.toggle('mostrarModal');
   janelaModalEmprestar.classList.toggle('mostrarModal-emprestar');
-}
+};
 
 function devolverLivro(){
   btnEmprestar.classList.remove('esconder-botao');
   btnDevolver.classList.add('esconder-botao');
 
   modalExtra.classList.add('esconderModalExtra');
-}
+};
 
 function bloquearBotaoDevolvereEmprestar(){
   btnDevolver.disabled = true;
@@ -336,8 +336,7 @@ function bloquearBotaoDevolvereEmprestar(){
   btnEmprestar.style.cursor = 'default';
   btnDevolver.style.opacity = '0.5';
   btnEmprestar.style.opacity = '0.5';
-  
-}
+};
 
 function desbloquerBotaoDevolvereEmprestar(){
   btnDevolver.disabled = false;
@@ -346,13 +345,12 @@ function desbloquerBotaoDevolvereEmprestar(){
   btnEmprestar.style.cursor = 'pointer';
   btnDevolver.style.opacity = '1';
   btnEmprestar.style.opacity = '1';
-}
+};
 
 function salvaAtivacaoLivro (){
   const data = getData();
   const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
 
-  
   const newStatus = {
     isActive: true,
     description: ''
@@ -372,8 +370,8 @@ function salvaAtivacaoLivro (){
 
   btnInativar.classList.remove('esconder-botao');
   btnAtivar.classList.add('esconder-botao');
-  desbloquerBotaoDevolvereEmprestar()
-}
+  desbloquerBotaoDevolvereEmprestar();
+};
 
 function salvarInativacaoLivro (){
   const data = getData();
@@ -385,7 +383,7 @@ function salvarInativacaoLivro (){
 
   if(!receberMotivoInativacao.value){
     return
-  }
+  };
   
   const newStatus = {
     isActive: false,
@@ -440,4 +438,4 @@ function abriEditarLivro(){
   window.location = '/src/paginas/editar_livro/editar_livro.html';
 
   localStorage.setItem('@livroSelecionado:livro', JSON.stringify(livroSelecionado));
-}
+};

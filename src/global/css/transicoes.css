@@ -26,10 +26,9 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  /* background-image: linear-gradient(45deg, #37ecba, #72afd3, #ebbba7, #cfc7f8 ); */
-  
+ 
   background-image: linear-gradient(45deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
-  
+
   background-size: 300% 300%;
   animation: colors 3s ease ;
 }

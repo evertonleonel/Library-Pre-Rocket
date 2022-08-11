@@ -33,7 +33,7 @@ INFORMACAO LIVRO
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* padding: 90px 48px; */
+
   cursor: pointer;
   width: 172px;
   height: 206px;
@@ -201,7 +201,7 @@ Rsponsive
 
 @media screen and (max-width: 670px) {
   .livro-capa {
-  margin: 0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -213,5 +213,5 @@ Rsponsive
   .botoes-cadastro-livro {
     top: 86%;
     right: -15px;
-    }
+  }
 }

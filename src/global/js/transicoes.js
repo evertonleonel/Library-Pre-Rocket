@@ -10,5 +10,4 @@ window.onload = () => {
   setInterval (()=>{
     transicao_el.classList.remove('esta-ativa');
   },500);
-  
 };

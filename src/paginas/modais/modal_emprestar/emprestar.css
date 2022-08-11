@@ -20,6 +20,8 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  animation: modalAnimado 0.5s;
   z-index: 20;
 }
 
@@ -47,7 +49,12 @@ h2 {
   right: 16px;
   margin: 6px;
   cursor: pointer;
+  transition: all 300ms;
 }
+
+.fecharAba-emprestar:hover {
+  background-color: #ccc;
+  }
 
 /* 
  DADOS ALUNO
@@ -130,4 +137,15 @@ button {
 
 .mostrarModal-emprestar {
   display: none;
+}
+
+@keyframes modalAnimado {
+  from{
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
 }

@@ -17,7 +17,7 @@ const obterHistoricos = () => {
   }))
 
   return booksTratado;
-}
+};
 
 const renderizarHistorico = (livros) => {
 
@@ -51,21 +51,21 @@ const renderizarHistorico = (livros) => {
       let tdDataEntrega = document.createElement('td');
       tdDataEntrega = tr.insertCell()
       tdDataEntrega.innerText =  aluno.deliveryDate;
-    })
-   
-  })
+    });
+  });
+
 };
 
 window.onload = async () => {
   const historicos = await obterHistoricos();
 
   renderizarHistorico(historicos);
-}
+};
 
 function formatarData(dataAtual){
   let formatarData = dataAtual.value
   return formatarData.split('-').reverse().join('/');
-}
+};
 
 const filtrarHistorico =  (filtro, campo) => {
   const livros =  obterHistoricos();
@@ -73,11 +73,11 @@ const filtrarHistorico =  (filtro, campo) => {
   livros.forEach((livro) => {
     livro.rentHistory = livro.rentHistory.filter((historico) =>
       historico[campo].toLowerCase().indexOf(filtro.toLowerCase()) > -1
-    )
-  })
+    );
+  });
 
   renderizarHistorico(livros);
-}
+};
 
 const filtrarHistoricoPorData =  (filtro, campo) => {
   const livros =  obterHistoricos();
@@ -87,21 +87,21 @@ const filtrarHistoricoPorData =  (filtro, campo) => {
   livros.forEach((livro) => {
     livro.rentHistory = livro.rentHistory.filter((historico) =>
       historico[campo].toLowerCase().indexOf(filtro.toLowerCase()) > -1
-    )
-  })
+    );
+  });
 
   renderizarHistorico(livros);
-}
+};
 
 const filtrarTittle = (filtro) => {
   const livros = obterHistoricos();
 
   const livrosFiltrados = livros.filter((livro) =>
     livro.tittle.toLowerCase().indexOf(filtro.toLowerCase()) > -1
-  )
+  );
 
   renderizarHistorico(livrosFiltrados);
-}
+};
 
 buscarAluno.addEventListener('input', () => filtrarHistorico(buscarAluno.value, 'studentName'));
 buscarTurma.addEventListener('input', () => filtrarHistorico(buscarTurma.value, 'class'));

@@ -20,25 +20,25 @@ async function importarDadosSeVazio() {
   
   const fileData = await getFileData();
   saveBooks(fileData);
-}
+};
 
 function logar(e){
   e.preventDefault();
   window.location.href = "/src/paginas/home/home.html"
   importarDadosSeVazio();
-}
+};
 
 const focado = ({target}) => {
   const span = target.previousElementSibling;
   span.classList.add('span-ativado');
-}
+};
 
 const desfocado = ({target}) => {
   if(!target.value){
     const span = target.previousElementSibling;
     span.classList.remove('span-ativado');
-  }
-}
+  };
+};
 
 input_email.addEventListener('focus', focado);
 input_senha.addEventListener('focus', focado);
@@ -56,7 +56,7 @@ const verificarCampos = async () => {
       e.preventDefault();
       alert('Informe os campos')
       return
-    }
+    };
     
     const {login} = data.data
     
@@ -72,7 +72,6 @@ const verificarCampos = async () => {
     };
 
   });
+};
 
-}
-
-verificarCampos()
+verificarCampos();
