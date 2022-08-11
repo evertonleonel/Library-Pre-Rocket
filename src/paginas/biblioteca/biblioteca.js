@@ -22,6 +22,11 @@ const btnDevolver = document.querySelector('.btn-devolver');
 const btnModalEmprestar = document.querySelector('.btn-ModalEmprestar');
 const btnModalInativar = document.querySelector('.btn-Modal-Inativar');
 
+const filtroAluno = document.querySelector('.buscar_aluno');
+const filtroTurma = document.querySelector('.buscar_turma');
+const filtroDataRetirada = document.querySelector('.buscar_data-retirada');
+const filtroDataEntrega = document.querySelector('.buscar_data-entrega');
+
 const renderizarLivros = (livros) => {
   livrosContainer.innerHTML = '';
 
@@ -141,8 +146,37 @@ function alternaBotoesEmprestarDevolver(){
 const corpoTabela = document.querySelector('.corpo-tabela');
 
 function atualizarModalHistorico (){
+  const historicoLivro = livroSelecionado.rentHistory;
+  let historicoFiltrado = [];
+  historicoFiltrado = historicoLivro
 
-  livroSelecionado.rentHistory.forEach( (aluno) => {
+  if( filtroAluno.value !== '' ) {
+    historicoFiltrado = historicoLivro.filter((historico) => 
+      historico.studentName.toLowerCase().indexOf(filtroAluno.value.toLowerCase()) > -1
+    )
+  }
+
+  if( filtroTurma.value !== '' ) {
+    historicoFiltrado = historicoLivro.filter((historico) => 
+      historico.class.toLowerCase().indexOf(filtroTurma.value.toLowerCase()) > -1
+    )
+  }
+
+  if( filtroDataRetirada.value !== '' ) {
+    historicoFiltrado = historicoLivro.filter((historico) => 
+      historico.withdrawalDate.indexOf(formatarData(filtroDataRetirada)) > -1
+    )
+  }
+
+  if( filtroDataEntrega.value !== '' ) {
+    historicoFiltrado = historicoLivro.filter((historico) => 
+      historico.deliveryDate.indexOf(formatarData(filtroDataEntrega)) > -1
+    )
+  }
+
+  corpoTabela.innerHTML = '';
+
+  historicoFiltrado.forEach((aluno) => {
     let tr = document.createElement('tr');
     tr = corpoTabela.insertRow();
   
@@ -314,7 +348,6 @@ function desbloquerBotaoDevolvereEmprestar(){
   btnEmprestar.style.opacity = '1';
 }
 
-
 function salvaAtivacaoLivro (){
   const data = getData();
   const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
@@ -341,7 +374,6 @@ function salvaAtivacaoLivro (){
   btnAtivar.classList.add('esconder-botao');
   desbloquerBotaoDevolvereEmprestar()
 }
-
 
 function salvarInativacaoLivro (){
   const data = getData();
@@ -381,7 +413,6 @@ function salvarInativacaoLivro (){
 
   btnInativar.classList.add('esconder-botao');
   btnAtivar.classList.remove('esconder-botao');
-  
 }
 
 btnEmprestar.addEventListener('click', alternaParaModalEmprestar);
@@ -399,6 +430,11 @@ btnDevolver.addEventListener('click', devolverLivro);
 btnEditar.addEventListener('click', abriEditarLivro);
 
 btnAtivar.addEventListener('click', salvaAtivacaoLivro);
+
+filtroAluno.addEventListener('input', atualizarModalHistorico);
+filtroTurma.addEventListener('input', atualizarModalHistorico);
+filtroDataRetirada.addEventListener('input', atualizarModalHistorico);
+filtroDataEntrega.addEventListener('input', atualizarModalHistorico);
 
 function abriEditarLivro(){
   window.location = '/src/paginas/editar_livro/editar_livro.html';

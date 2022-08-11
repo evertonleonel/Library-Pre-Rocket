@@ -99,6 +99,9 @@ function salvarEdicao(){
   if (!inputFile.value) return;
   if (!dataLivro.value) return;
 
+  console.log(inputFile.value)
+  console.log(inputFile)
+
   const newBook = {
     tittle: tituloLivro.value,
     author: autorLivro.value,
@@ -120,7 +123,7 @@ function salvarEdicao(){
 
   limparCampos()
 
-  window.location = '/src/paginas/biblioteca/biblioteca.html';
+  //window.location = '/src/paginas/biblioteca/biblioteca.html';
 }
 
 btnSalvar.addEventListener('click', salvarEdicao);
