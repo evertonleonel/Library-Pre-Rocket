@@ -138,19 +138,19 @@ button {
 }
 
 .btn-editar {
-  max-width: 90px;
+  width: 90px;
   color:#167CE2;
   border: 1px solid #167CE2;
 }
 
 .btn-inativar {
-  max-width: 101px;
+  width: 101px;
   border: 1px solid #ED5E5E;
   color:  #ED5E5E;
 }
 
 .btn-ativar {
-  max-width: 101px;
+  width: 101px;
   border: 1px solid #49D749;
   color: #49D749;
 }

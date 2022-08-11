@@ -383,7 +383,7 @@ function salvarInativacaoLivro (){
   const receberMotivoInativacao = document.querySelector('.motivo-inativacao');
   const mostrarMotivoInativacao = document.querySelector('.modal-extra-motivoInativar');
 
-  if(!receberMotivoInativacao){
+  if(!receberMotivoInativacao.value){
     return
   }
   

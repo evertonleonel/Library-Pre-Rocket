@@ -25,14 +25,16 @@ inputFile.addEventListener('change', (e) => {
 
     reader.addEventListener('load', (e) => {
       const readerTarget = e.target;
+      const imagemBase64 = readerTarget.result
 
       const img = document.createElement('img');
-      img.src = readerTarget.result;
+      img.src = imagemBase64;
       img.classList.add('imagem-escolhida');
       imageSelecionada.innerHTML = '';
       imageSelecionada.appendChild(img);
+      
     })
-
+    
     document.querySelector('.livro-capa_icone').classList.add('esconder-imagem')
     document.querySelector('.livro-capa').style.border = 'none'
     reader.readAsDataURL(file);
@@ -42,8 +44,9 @@ inputFile.addEventListener('change', (e) => {
     document.querySelector('.livro-capa_icone').classList.remove('esconder-imagem');
     document.querySelector('.livro-capa').style.border = '2px dashed currentColor';
   }
-
+  
 });
+
 
 function voltarParaBiblioteca(){
   window.location = '/src/paginas/biblioteca/biblioteca.html'
@@ -76,18 +79,18 @@ function formatarData(dataAtual){
 }
 
 function salvarEdicao(){
-
+  
   const getLivroSelecionado = () => {
     const livroAtual = localStorage.getItem('@livroSelecionado:livro');
     return livroAtual ? JSON.parse(livroAtual) : {};
   }
 
   let livroSelecionado = getLivroSelecionado()
-
+  
   let novoStatus = livroSelecionado.status;
-
+  
   let novoRentHistory = livroSelecionado.rentHistory;
-
+  
   const data = getData();
   
   const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
@@ -99,15 +102,12 @@ function salvarEdicao(){
   if (!inputFile.value) return;
   if (!dataLivro.value) return;
 
-  console.log(inputFile.value)
-  console.log(inputFile)
-
   const newBook = {
     tittle: tituloLivro.value,
     author: autorLivro.value,
     genre: generoLivro.value,
     status: novoStatus,
-    image: inputFile.value,
+    image: document.querySelector('.imagem-escolhida').src,
     systemEntryDate: formatarData(dataLivro),
     synopsis: sinopseLivro.value,
     rentHistory: novoRentHistory
@@ -123,7 +123,7 @@ function salvarEdicao(){
 
   limparCampos()
 
-  //window.location = '/src/paginas/biblioteca/biblioteca.html';
+  window.location = '/src/paginas/biblioteca/biblioteca.html';
 }
 
 btnSalvar.addEventListener('click', salvarEdicao);
