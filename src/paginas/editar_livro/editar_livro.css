@@ -46,8 +46,12 @@ INFORMACAO LIVRO
   transition: background-color 300ms ease-in-out;
 }
 
+.livro-capa:hover {
+  border-color: rgb(75, 255, 84)
+}
+
 .livro-capa:active {
-  border-color: rgb(75, 255, 84);
+  border-color: rgb(159, 75, 255);
 }
 
 .imagem-escolhida {
