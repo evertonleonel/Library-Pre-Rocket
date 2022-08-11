@@ -67,6 +67,15 @@
   color: #3E4756;
 }
 
+.descricao_titulo ,
+ .descricao_sinopse,
+  .descricao_autor {
+  width: 424px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
 .descricao h4 {
   margin-bottom: 8px;
   color: #3E4756;

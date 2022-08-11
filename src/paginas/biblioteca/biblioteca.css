@@ -93,6 +93,11 @@ CONTAINER-LIVROS
   text-align: center;
   font-size: 16px;
   color: #3E4756;
+
+  width: 120px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  /* white-space: nowrap; */
 }
 
 .livro-descricao_imagem {
