@@ -338,6 +338,8 @@ function bloquearBotaoDevolvereEmprestar(){
   btnEmprestar.style.cursor = 'default';
   btnDevolver.style.opacity = '0.5';
   btnEmprestar.style.opacity = '0.5';
+  btnDevolver.style.pointerEvents = 'none';
+  btnEmprestar.style.pointerEvents = 'none';
 };
 
 function desbloquerBotaoDevolvereEmprestar(){
@@ -347,6 +349,8 @@ function desbloquerBotaoDevolvereEmprestar(){
   btnEmprestar.style.cursor = 'pointer';
   btnDevolver.style.opacity = '1';
   btnEmprestar.style.opacity = '1';
+  btnDevolver.style.pointerEvents = 'auto';
+  btnEmprestar.style.pointerEvents = 'auto';
 };
 
 function salvaAtivacaoLivro (){
