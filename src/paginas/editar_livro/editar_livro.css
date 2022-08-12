@@ -1,3 +1,7 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 /* 
 CADASTRO LIVRO CONTENT 
 */
@@ -117,6 +121,8 @@ INFORMACAO LIVRO
 
 #livro-sinopse{
   height: 129px;
+  text-align: left;
+  font-size: 16px;
 }
 
 .livro-data_icone {
