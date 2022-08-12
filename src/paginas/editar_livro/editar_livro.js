@@ -1,4 +1,5 @@
 import { getData, saveBooks } from "/src/global/js/global.js";
+import { setaNavegar, navegarParaPagina } from "../../global/js/navegaParaPagHome.js";
 
 const inputFile = document.getElementById('livro-imagem-capa');
 const tituloLivro = document.getElementById('livro-titulo');
@@ -11,9 +12,43 @@ const btnSalvar = document.querySelector('.btn-salvar');
 
 const imageSelecionada = document.querySelector('.escolher-imagem');
 
-const imagemTexto = `Capa`;
+function adicionarImagemInputLivro(livroSelecionado){
+  const img = document.createElement('img');
+  img.src = livroSelecionado.image;
+  img.classList.add('imagem-escolhida');
+  imageSelecionada.innerHTML = '';
+  imageSelecionada.appendChild(img);
+  document.querySelector('.livro-capa_icone').classList.add('esconder-imagem')
+  document.querySelector('.livro-capa').style.border = 'none'
+}
 
-imageSelecionada.innerHTML = ` ${imagemTexto}`;
+function formatarDataParaUS(dataAtual){
+  
+  let formatarData = dataAtual
+  return formatarData.split('/').reverse().join('-');
+};
+
+window.onload = () => {
+  const getLivroSelecionado = () => {
+    const livroAtual = localStorage.getItem('@livroSelecionado:livro');
+    return livroAtual ? JSON.parse(livroAtual) : {};
+  };
+  
+  let livroSelecionado = getLivroSelecionado()
+
+  adicionarImagemInputLivro(livroSelecionado)
+  
+  tituloLivro.value = livroSelecionado.tittle;
+  autorLivro.value = livroSelecionado.author;
+  sinopseLivro.value = livroSelecionado.synopsis;
+  dataLivro.value = formatarDataParaUS(livroSelecionado.systemEntryDate)
+  
+  const novaOption = document.createElement('option');
+  novaOption.innerHTML = livroSelecionado.genre
+  generoLivro.appendChild(novaOption)
+  
+  generoLivro.value = novaOption.innerHTML
+};
 
 inputFile.addEventListener('change', (e) => {
   const inputTarget = e.target
@@ -44,9 +79,9 @@ inputFile.addEventListener('change', (e) => {
   };
 });
 
-
 function voltarParaBiblioteca(){
   window.location = '/src/paginas/biblioteca/biblioteca.html';
+  limparCampos()
 };
 
 btnCancelar.addEventListener('click', voltarParaBiblioteca);
@@ -90,7 +125,7 @@ function salvarEdicao(){
     systemEntryDate: formatarData(dataLivro),
     synopsis: sinopseLivro.value,
     rentHistory: novoRentHistory
-  }
+  };
 
   livroSelecionado = newBook;
   
@@ -103,7 +138,7 @@ function salvarEdicao(){
   limparCampos();
 
   window.location = '/src/paginas/biblioteca/biblioteca.html';
-}
+};
 
 btnSalvar.addEventListener('click', salvarEdicao);
 
@@ -114,6 +149,7 @@ function limparCampos(){
   generoLivro.value = '';
   inputFile.value = '';
   dataLivro.value = '';
-}
+};
 
+setaNavegar.addEventListener('click', navegarParaPagina);
 

@@ -149,6 +149,14 @@ body {
   color: var(--cor-dourada);
 }
 
+.link-voltar-home_seta {
+  cursor: pointer;
+}
+
+.link-voltar-home_seta:hover {
+  background-color: var(--cor-cinza-fraco);
+}
+
 /* 
 ---------------------------
     CONTAINER NAVEGARCAO 

@@ -1,4 +1,5 @@
 import { getData } from "/src/global/js/global.js";
+import { setaNavegar, navegarParaPagina } from "../../global/js/navegaParaPagHome.js";
 
 const corpoTabela = document.querySelector('.corpo-tabela');
 const buscarAluno = document.querySelector('.buscar_aluno');
@@ -108,3 +109,5 @@ buscarTurma.addEventListener('input', () => filtrarHistorico(buscarTurma.value, 
 buscarLivro.addEventListener('input', () => filtrarTittle(buscarLivro.value));
 buscarDataRetirada.addEventListener('input', () => filtrarHistoricoPorData(buscarDataRetirada.value, 'withdrawalDate'));
 buscarEntrega.addEventListener('input', () => filtrarHistoricoPorData(buscarEntrega.value, 'deliveryDate'));
+
+setaNavegar.addEventListener('click', navegarParaPagina);

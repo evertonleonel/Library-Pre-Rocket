@@ -1,4 +1,6 @@
 import { getData, saveBooks } from "/src/global/js/global.js";
+import { setaNavegar, navegarParaPagina } from "../../global/js/navegaParaPagHome.js";
+
 
 const inputPesquisar = document.querySelector('.campo--pesquisar');
 const selectFiltro = document.querySelector('.campo--filtro');
@@ -439,3 +441,5 @@ function abriEditarLivro(){
 
   localStorage.setItem('@livroSelecionado:livro', JSON.stringify(livroSelecionado));
 };
+
+setaNavegar.addEventListener('click', navegarParaPagina);

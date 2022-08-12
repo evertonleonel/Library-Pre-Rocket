@@ -1,4 +1,5 @@
 import { getData, saveBooks } from "/src/global/js/global.js";
+import { setaNavegar, navegarParaPagina } from "../../global/js/navegaParaPagHome.js";
 
 const inputFile = document.getElementById('livro-imagem-capa');
 const inputTitulo = document.getElementById('livro-titulo');
@@ -103,3 +104,5 @@ function limparCampos(){
   inputGenero.value = '';
   inputData.value = '';
 };
+
+setaNavegar.addEventListener('click', navegarParaPagina);
