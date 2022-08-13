@@ -113,15 +113,21 @@ function salvarEdicao(){
   if (!autorLivro.value) return;
   if (!sinopseLivro.value) return;
   if (!generoLivro.value) return;
-  if (!inputFile.value) return;
+  // if (!inputFile.value) return;
   if (!dataLivro.value) return;
+  
+  let editarImagem;
+  if(inputFile.files[0]){
+    editarImagem = document.querySelector('.imagem-escolhida').src;
+  }else{ 
+    editarImagem = livroSelecionado.image}
 
   const newBook = {
     tittle: tituloLivro.value,
     author: autorLivro.value,
     genre: generoLivro.value,
     status: novoStatus,
-    image: document.querySelector('.imagem-escolhida').src,
+    image: editarImagem,
     systemEntryDate: formatarData(dataLivro),
     synopsis: sinopseLivro.value,
     rentHistory: novoRentHistory
@@ -151,5 +157,5 @@ function limparCampos(){
   dataLivro.value = '';
 };
 
-setaNavegar.addEventListener('click', navegarParaPagina);
+// setaNavegar.addEventListener('click', navegarParaPagina);
 

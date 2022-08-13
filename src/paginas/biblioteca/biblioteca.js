@@ -117,6 +117,19 @@ const modalGenero = document.querySelector('.descricao_genero');
 const modalData = document.querySelector('.descricao_data');
 const modalExtra = document.querySelector('.modal_extra');
 
+
+function atualizarBotaoInativar(){
+  if(livroSelecionado.status.isActive === false){
+    bloquearBotaoDevolvereEmprestar();
+    btnInativar.classList.add('esconder-botao');
+    btnAtivar.classList.remove('esconder-botao');
+
+    const modalExtraInativacao = document.querySelector('.modal_extra-inativar');
+    modalExtraInativacao.classList.remove('esconderModalExtra');
+  }
+}
+
+
 function atualizarModal(){
   modalImg.src = livroSelecionado.image;
   modalTitulo.innerHTML = livroSelecionado.tittle;
@@ -131,8 +144,9 @@ function atualizarModal(){
   else{
     modalExtra.classList.remove('esconderModalExtra')
   }
-    
+
   atualizarModalExtra()
+  atualizarBotaoInativar()
 }
 
 function alternaBotoesEmprestarDevolver(){
@@ -230,7 +244,6 @@ function atualizarModalExtra (){
   });
    
   alternaBotoesEmprestarDevolver();
-
 };
 
 function mostrarModal(e){
@@ -382,7 +395,7 @@ function salvaAtivacaoLivro (){
 function salvarInativacaoLivro (){
   const data = getData();
   const livros = data.data.books.filter((book) => book.tittle !== livroSelecionado.tittle);
-
+  
   const modalExtraInativacao = document.querySelector('.modal_extra-inativar');
   const receberMotivoInativacao = document.querySelector('.motivo-inativacao');
   const mostrarMotivoInativacao = document.querySelector('.modal-extra-motivoInativar');
@@ -399,11 +412,11 @@ function salvarInativacaoLivro (){
   livroSelecionado.status = newStatus;
 
   livros.push(livroSelecionado);
-
+ 
   data.data.books = livros;
 
   saveBooks(data);
-
+  
   mostrarMotivoInativacao.textContent = receberMotivoInativacao.value;
   
   alternaParaModalInativar()
